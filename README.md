@@ -19,10 +19,15 @@ The first step is to leverage standard GS1 and UN/CEFACT semantics to define sta
 
 The data held by the UNECE platform is essentially a series of key supply chain “events” that, when linked together, can provide the traceability and verification evidence to support sustainability claims.  The API design will be based on some strategic principles.
 
+### API Principles
+
 * **Standards based.**  Aligned with the GS1 [EPCIS](https://www.gs1.org/standards/epcis/1-1) event model and conforming to UN/CEFACT supply chain semantics. This ensures consistency across multiple implementations.
 * **Lightweight.**  A suite of modern RESTful APIs that are simple to understand and easy to implement. This ensures that implementation effort and cost is minimised for our industry partners.
+* **Decentralisation aligned.** Since event data will come from multiple industry systems and must be correlated across the supply chain, the APIs will avoid locally maintained master data (products, locations, entities, etc) and will instead focus on the use of resolvable public identifiers where master data is maintained in whatever system is the identity authrority (eg a national business register).
 * **Secure.**  Applies best practice security architectures (authentication, authorisation, encryption, etc) and collects only the minimum required data. This ensures that data from industry partners is secure, and that commercial sensitive information is not exposed to unauthorised parties.
 * **Collaborative.**  We will co-design the APIs together with industry partners to ensure that they are fit for purpose and easily implementable.
+
+### API Resource model
 
 The diagram shows the high-level system architecture.
 
@@ -31,12 +36,14 @@ The diagram shows the high-level system architecture.
 The scope of APIs to be implemented is shown in the green box.
 
 * **Reference data API** allows industry systems to access the common vocabulary of terms such as document type, business step, and sustainability claim type.
-* **Business partner API** allows industry systems to create / update basic business partner data so that the platform has the contact information to verify claims.
+* **Business partner API** allows industry systems to create / update basic business partner data so that the platform has the contact information to verify claims (not needed for digitally verifiable claims).
 * **Transaction event API** is used to notify / update business-to-business events such as shipments & invoices.
 * **Transformation event API** is used to notify / update manufacturing events that transform input materials (eg thread) into output materials (eg fabric).
 * **Aggregation event API** is used to notify / update transport events when materials are packed or unpacked (eg many packages grouped into a pallet)
 * **Verification event API** is used to notify / update inspection or certification actions on either items or establishments.
 * **Traceability graph API** provides a query interface for authorised users to retrieve all the linked events (commercially sensitive information redacted) for a given product that are used to verify sustainability. This API provides industry partners with the evidence to back their product sustainability claims.
+
+### API Security model
 
 API Security will follow standard token based access control using OAuth implicit flow. This model is preferred over simple API keys as it is less susceptible to man-in-the-middle attacks and support finer grained role based acces via claims in the JWT.  For the UNECE platform which is hosted on Google Cloud, this means
 
