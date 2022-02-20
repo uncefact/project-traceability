@@ -58,7 +58,7 @@ The scope of APIs to be implemented is shown in the green box.
 API Security will follow standard token based access control using OAuth implicit flow. This model is preferred over simple API keys as it is less susceptible to man-in-the-middle attacks and support finer grained role based acces via claims in the JWT.  For the UNECE platform which is hosted on Google Cloud, this means
 
 * Google [IAM](https://cloud.google.com/iam) for service account management and 
-* Google API Gatway [JWT}(https://cloud.google.com/api-gateway/docs/authenticating-users-jwt) authentication method.]
+* Google API Gateway [JWT](https://cloud.google.com/api-gateway/docs/authenticating-users-jwt) authentication method.
 
 ## Vocabulary Requirements
 
@@ -78,7 +78,7 @@ There are a number of important identifier types.
 * **Entity Identifiers.** In order to successfully join the dots in a given supply chain, all entity identifiers must be resolvable to one or more verifiable public identities expressed as URIs. Suitable identifier schemes are
   *  DNS domain names - verified using [did:dns](https://danubetech.github.io/did-method-dns/) (for verifiable credentials) or [DKIM](https://datatracker.ietf.org/doc/html/rfc6376) (for email verification) 
   *  National business register entries (eg https://www.abr.business.gov.au/ABN/View?abn=41161080146) verified via a register issued digital credential (automated) or via paper registration certificate inspection (manual). 
-* **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) (Global Trade Item Number - presented as a URI (eg urn:epc:id:sgtin:0614141.107346.2017).  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable.  
+* **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) (Global Trade Item Number - presented as a URI (eg ```urn:epc:id:sgtin:0614141.107346.2017```).  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable.  
 * **Location Identifiers.** should use [plus codes](https://maps.google.com/pluscodes/) as a URI (eg https://plus.codes/4RPFP4QJ+6G). A plus code identifies a latitude / longitude bounded area of variable resolution (eg could identify a farming region, a specific field, or a street location). The use of plus codes allows easy rendering of traceability graphs as geographic maps, supports location identification of non-address locations such as a field of cotton.  It also appropriately separates geographic locations from entity identifiers so that location information can be provided without correlating to specific supplier identities that may be commercial in confidence.
 
 ## Verification Requirements
