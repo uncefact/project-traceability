@@ -15,7 +15,7 @@ A component of the program is to demonstrate the feasibility of a decentralised 
 
 The first step is to leverage standard GS1 and UN/CEFACT semantics to define standard APIs that the current UNECE traceability platform will support.  The next step is to leverage the same GS1 & UN/CEFACT semantics as the credential interoperability framework between a global network of platforms. 
 
-## API Strategy
+## API Requirements
 
 The data held by the UNECE platform is essentially a series of key supply chain “events” that, when linked together, can provide the traceability and verification evidence to support sustainability claims.  The API design will be based on some strategic principles.
 
@@ -38,9 +38,14 @@ The scope of APIs to be implemented is shown in the green box.
 * **Verification event API** is used to notify / update inspection or certification actions on either items or establishments.
 * **Traceability graph API** provides a query interface for authorised users to retrieve all the linked events (commercially sensitive information redacted) for a given product that are used to verify sustainability. This API provides industry partners with the evidence to back their product sustainability claims.
 
-## Vocabulary Strategy
+API Security will follow standard token based access control using OAuth implicit flow. This model is preferred over simple API keys as it is less susceptible to man-in-the-middle attacks and support finer grained role based acces via claims in the JWT.  For the UNECE platform which is hosted on Google Cloud, this means
 
-The API structure (ie schema) for EPCIS based traceability events is very simple. essentially, each event is a small bundle of identifiers that say **who**  (party ID) and **why** (business action ID or certification ID) an event is created and about about **what** (productID or facilityID) and **where** (location ID) and **when** (time-stamp) is is made. The interoperability challenge lies not in the message structure but in the consistent use of identifiers across multiple systems. without that consistency, there will be no easy way to link events to form a traceability graph that lies at the heart of verifiable sustainability claims.
+* Google [IAM](https://cloud.google.com/iam) for service account management and 
+* Google API Gatway [JWT}(https://cloud.google.com/api-gateway/docs/authenticating-users-jwt) authentication method.]
+
+## Vocabulary Requirements
+
+The API structure (ie schema) for EPCIS based traceability events is very simple. Essentially, each event is a small bundle of identifiers that say **who**  (party ID) and **why** (business action ID or certification ID) an event is created and about about **what** (productID or facilityID) and **where** (location ID) and **when** (time-stamp) is is made. The interoperability challenge lies not in the message structure but in the consistent use of identifiers across multiple systems. Without that consistency, there will be no easy way to link events to form the traceability graph that lies at the heart of verifiable sustainability claims.
 
 All identifiers MUST be globally unique and SHOULD be
 
@@ -59,13 +64,13 @@ There are a number of important identifier types.
 * **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) (Global Trade Item Number - presented as a URI (eg urn:epc:id:sgtin:0614141.107346.2017).  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable.  
 * **Location Identifiers.** should use [plus codes](https://maps.google.com/pluscodes/) as a URI (eg https://plus.codes/4RPFP4QJ+6G). A plus code identifies a latitude / longitude bounded area of variable resolution (eg could identify a farming region, a specific field, or a street location). The use of plus codes allows easy rendering of traceability graphs as geographic maps, supports location identification of non-address locations such as a field of cotton.  It also appropriately separates geographic locations from entity identifiers so that location information can be provided without correlating to specific supplier identities that may be commercial in confidence.
 
-## Verification Strategy
+## Verification Requirements
 
 As the demand (and price) for verifiable sustainable produce increases, so does the opportunity and attractiveness of fraudulent sustainability claims. A number of fraud opportunities exist - here's three;
 
-* Fake material inputs. For example, a manufacturer creates a fake invoice from a reputable supplier to claim organic / carbon neutral inputs. Mitigation is to verify that the input was really sourced from the trusted supplier.  
-* Collaboration. For example, a tanning plant bribes an inspector to issue a "real" chemical safety certificate without actually doing the inspection. Mitigation is to take evidence from tamper evident sensors where possible. Also to confirm that the the inspector is accredited by a trusted authority.
-* Mass-imbalance.  for example a manufacturer has purchased genuine and verifiable sustainable inputs, but only enough for 10% of production volume. The rest is cheaper non-sustainable inputs. Mitigation is to verify that the quantity of sustainable inputs matches the quantity of finished product output. 
+* **Fake material inputs.** For example, a manufacturer creates a fake invoice from a reputable supplier to claim organic / carbon neutral inputs. Mitigation is to verify that the input was really sourced from the trusted supplier.  
+* **Collaboration fraud.** For example, a tanning plant bribes an inspector to issue a "real" chemical safety certificate without actually doing the inspection. Mitigation is to take evidence from tamper evident sensors where possible. Also to confirm that the the inspector is accredited by a trusted authority.
+* **Mass-imbalance.**  for example a manufacturer has purchased genuine and verifiable sustainable inputs, but only enough for 10% of production volume. The rest is cheaper non-sustainable inputs. Mitigation is to verify that the quantity of sustainable inputs matches the quantity of finished product output. 
 
 In the ideal world, all traceability claims would be digitally verifiable via cryptographic proofs and verifiable links to trust anchors such as national regulators. However there is still a lot of paper or pdf evidence in the supply chain and so the traceability framework needs to support semi-manual verification whilst driving behavior towards digitally verifiable claims. 
 
@@ -73,12 +78,12 @@ In the ideal world, all traceability claims would be digitally verifiable via cr
 * when a transaction or verification event is supported by a digital verifiable credential then the platform will simply verify the credential and the issuer identity (signature) and, if appropriate, verify any linked credentials such as certifier accreditation certificates from competent authorities. There is no requirement for any advanced registration.
 
 
-## Decentralisation Strategy
+## Decentralisation Requirements
 
 There are two reasons why all textile supply chain traceability information cannot and should not be aggregated into a single platform.
 
-* Existing & emerging platforms. There are already hundreds of supply chain traceability solutions and platforms that service specific sectors or geographies. Some may grow to dominate their niche and others may fail but there will never be a single global "facebook of trade". The UNECE platform (and any non-commercial or government platforms in general) must be designed to complement and not compete with these existing networks. 
-* Security & privacy concerns. There is a (justifiably) increasing concern about web platforms mining personal or commercial data for profit. Supply chain data will, by it's nature, contain commercially sensitive information such as supplier / customer lists. A well designed traceability platform will minimise it's data holdings so that it presents a less attractive target to cyber attack or accidental unauthorised access. 
+* **Existing & emerging platforms.** There are already hundreds of supply chain traceability solutions and platforms that service specific sectors or geographies. Some may grow to dominate their niche and others may fail but there will never be a single global "facebook of trade". The UNECE platform (and any non-commercial or government platforms in general) must be designed to complement and not compete with these existing networks. 
+* **Security & privacy concerns.** There is a (justifiably) increasing concern about web platforms mining personal or commercial data for profit. Supply chain data will, by it's nature, contain commercially sensitive information such as supplier / customer lists. A well designed traceability platform will minimise it's data holdings so that it presents a less attractive target to cyber attack or accidental unauthorised access. 
 
 The solution to both these concerns is to design a traceability architecture that is decentralised from the outset. Discovering the trust graph that describes a specific product traceability map should be like pulling on and following a piece of string that connects different platforms and private data holdings to discover only the required data for one query - and not like querying a centralised big data lake that holds all the data.
 
