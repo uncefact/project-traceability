@@ -4,12 +4,12 @@ API definitions, JSON-LD vocabulary, and testable mocks for a UN standard supply
 
 Quick link| Description
 --|--
-Vocabulary JSON-LD vocabularies (coming march 2022)
-API specification RESTful Open API 3.0 specifications (coming march 2022)
+Vocabulary | JSON-LD vocabularies (coming march 2022)
+API specification| RESTful Open API 3.0 specifications (coming march 2022)
 Postman collection | API test client (coming April 2022)
-GraphQL playground | test area for trust graph queries
+GraphQL playground | test area for trust graph queries (May 2022)
 [Project kanban](https://github.com/orgs/uncefact/projects/2/views/4)| epics, tasks, and milestones
-[Discussion Board](https://github.com/uncefact/traceability/discussions)discussions about key topics and decisions
+[Discussion Board](https://github.com/uncefact/traceability/discussions)| discussions about key topics and decisions
 
 
 ## Business Context
@@ -78,8 +78,7 @@ There are a number of important identifier types.
 * **Entity Identifiers.** In order to successfully join the dots in a given supply chain, all entity identifiers must be resolvable to one or more verifiable public identities expressed as URIs. Suitable identifier schemes are
   *  DNS domain names - verified using [did:dns](https://danubetech.github.io/did-method-dns/) (for verifiable credentials) or [DKIM](https://datatracker.ietf.org/doc/html/rfc6376) (for email verification) 
   *  National business register entries (eg https://www.abr.business.gov.au/ABN/View?abn=41161080146) verified via a register issued digital credential (automated) or via paper registration certificate inspection (manual).
-* **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) where possible. A GTIN is a Global Trade Item Number - presented as a URI (eg urn:epc:id:sgtin:0614141.107346.2017.  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable. Use of GTIN may be more difficult for upstream items such as bulk cotton. Appropriate alternative product identifiers will be determined during API co-design.
-* **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) (Global Trade Item Number - presented as a URI (eg ```urn:epc:id:sgtin:0614141.107346.2017```).  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable.  
+* **Product Identifiers.** should be a [GS1 GTIN](https://www.gs1.org/standards/id-keys/gtin) where possible. A GTIN is a Global Trade Item Number - presented as a URI (eg ```urn:epc:id:sgtin:0614141.107346.2017.```  Ideally all GTIN should also be registered as a [GS1 digital link](https://www.gs1.org/standards/gs1-digital-link) so that further product information is easily discoverable. Use of GTIN may be more difficult for upstream items such as bulk cotton. Appropriate alternative product identifiers will be determined during API co-design.
 * **Location Identifiers.** should use [plus codes](https://maps.google.com/pluscodes/) as a URI (eg https://plus.codes/4RPFP4QJ+6G). A plus code identifies a latitude / longitude bounded area of variable resolution (eg could identify a farming region, a specific field, or a street location). The use of plus codes allows easy rendering of traceability graphs as geographic maps, supports location identification of non-address locations such as a field of cotton.  It also appropriately separates geographic locations from entity identifiers so that location information can be provided without correlating to specific supplier identities that may be commercial in confidence.
 
 ## Verification Requirements
