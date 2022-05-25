@@ -12,7 +12,7 @@ The graph shows an example pathway from grower to consumer and includes all the 
   * The graph does not show various forks and joins that would exist in the real world.  For example the pallet containing cotton bales that is shipped by the trader may include bales from more than one different grower / ginning mill. There are many points of aggregation in a real chain where multiple sources combine into one item (eg multiple blaes in a pallet) - or where one item (eg a 100m bolt of woven cloth may be used on multiple different garmet types)
 
 
-!sustainabilitytrustgraph.png
+![graph](sustainabilitytrustgraph.png)
 
 |Step|Event Type|BizStep|Location|Source Party|Dest Party|Input Items|Output Items|Ref Doc|Ref Cert|JSON Sample|
 |--|--|--|--|--|--|--|--|--|--|--|
