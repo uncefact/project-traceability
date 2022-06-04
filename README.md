@@ -5,7 +5,7 @@ API definitions, JSON-LD vocabulary, and testable mocks for a UN standard supply
 Quick link| Status| Description
 --|--|--
 [Vocabulary](https://github.com/uncefact/traceability/blob/main/vocabulary/sdce-vocabulary.json) | Raw| JSON-LD vocabularies (coming soon)
-[API specification](https://github.com/uncefact/traceability/blob/main/APIs/traceabilityAPI.json)| Raw| RESTful Open API 3.0 specifications (coming march 2022)
+[API specification](https://github.com/uncefact/traceability/blob/main/APIs/traceabilityAPI.json)| Raw| RESTful Open API 3.0 specifications - [human browsable versions](https://jargon.sh/redoc.html?url=/user/unece/traceabilityEvents/v/working/artefacts/openapi/render.json)
 Postman collection | | API test client (coming soon)
 GraphQL playground | | test area for trust graph queries (coming soon)
 [Test scenario & data](https://github.com/uncefact/traceability/blob/main/docs/testData/TestScenario.md)| |end to end traceability example |
