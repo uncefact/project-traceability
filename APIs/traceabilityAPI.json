@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "# Introductions\nThis template is intended to to be a good starting point for describing\nhow users can interact with the various methods of your API. \nWe recommend informing the user about various aspects of your api such as:\n\n\n# Getting Started\n\n## Using The API\n\n## Extra Developer Documentation:\nIf you have more developer documentation or tutorials specific to helping\ndevelopers interact with this endpoint.\n**url:** 'https://example.com/documentation/link'\n\n# Uptime & Planned Outages\n\n# Authentication & Rate Limits\n# Terms of Use, Copyright and Attribution\nPlease ensure you comply with the following policies prior to using any data\nwithin this API.\n\n- [Terms of Use](https://example.com/terms-use)\n- [Privacy Policy](https://example.com/privacy)\n\n# Contact Us\n",
+    "description": "# Introduction\nThis template is intended to to be a good starting point for describing\nhow users can interact with the various methods of your API. \nWe recommend informing the user about various aspects of your api such as:\n\n\n# Getting Started\n\n## Using The API\n\n## Extra Developer Documentation:\nIf you have more developer documentation or tutorials specific to helping\ndevelopers interact with this endpoint.\n**url:** 'https://example.com/documentation/link'\n\n# Uptime & Planned Outages\n\n# Authentication & Rate Limits\n# Terms of Use, Copyright and Attribution\nPlease ensure you comply with the following policies prior to using any data\nwithin this API.\n\n- [Terms of Use](https://example.com/terms-use)\n- [Privacy Policy](https://example.com/privacy)\n\n# Contact Us\n",
     "contact": {
       "email": "you@example.com",
       "url": "https://example.com/help"
@@ -170,7 +170,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/transactionEvents/{eventID}": {
@@ -241,7 +242,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/aggregationEvents": {
@@ -272,7 +274,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/aggregationEvents/{eventID}": {
@@ -343,7 +346,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/transformationEvents": {
@@ -374,7 +378,8 @@
               }
             }
           }
-        }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     },
     "/transformationEvents/{eventID}": {
@@ -445,7 +450,200 @@
               }
             }
           }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+      }
+    },
+    "/traceabilityGraphs/{id}/itemTraceability": {
+      "get": {
+        "tags": [
+          "TraceabilityGraph"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "description": "",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TraceabilityGraph"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a TraceabilityGraph",
+        "operationId": "getTraceabilityGraphById_itemTraceability",
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+      }
+    },
+    "/counterPartyVerificationCallbacks": {
+      "post": {
+        "tags": [
+          "CounterPartyVerificationCallback"
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CounterPartyVerificationCallback"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new CounterPartyVerificationCallback",
+        "operationId": "createCounterPartyVerificationCallback",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CounterPartyVerificationCallback"
+              }
+            }
+          }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+      }
+    },
+    "/businessPartners": {
+      "post": {
+        "tags": [
+          "BusinessPartner"
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPartner"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new BusinessPartner",
+        "operationId": "createBusinessPartner",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPartner"
+              }
+            }
+          }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+      }
+    },
+    "/businessPartners/{partyID}": {
+      "get": {
+        "tags": [
+          "BusinessPartner"
+        ],
+        "parameters": [
+          {
+            "name": "partyID",
+            "description": "",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPartner"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Get a BusinessPartner",
+        "operationId": "getBusinessPartnerById"
+      },
+      "put": {
+        "tags": [
+          "BusinessPartner"
+        ],
+        "parameters": [
+          {
+            "name": "partyID",
+            "description": "",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BusinessPartner"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Update a BusinessPartner",
+        "operationId": "updateBusinessPartnerById",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BusinessPartner"
+              }
+            }
+          }
         }
+      },
+      "delete": {
+        "tags": [
+          "BusinessPartner"
+        ],
+        "parameters": [
+          {
+            "name": "partyID",
+            "description": "",
+            "schema": {
+              "type": "string"
+            },
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "OK"
+          }
+        },
+        "summary": "Delete a BusinessPartner",
+        "operationId": "deleteBusinessPartnerById",
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
       }
     }
   },
@@ -468,7 +666,7 @@
           "items": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TradeItem"
+              "$ref": "#/components/schemas/Product"
             },
             "description": ""
           },
@@ -489,12 +687,6 @@
           },
           "actionCode": {
             "type": "string",
-            "example": "observe",
-            "enum": [
-              "observe",
-              "add",
-              "delete"
-            ],
             "description": "The Action type says how an event relates to the lifecycle of the entity being described. For example, AggregationEvent is used to capture events related to aggregations of objects, such as cases aggregated to a pallet. Throughout its life, the pallet load participates in many business process steps, each of which may generate an EPCIS event. The action field of each event says how the aggregation itself has changed during the event: have objects been added to the aggregation, have objects been removed from the aggregation, or has the aggregation simply been observed without change to its membership? The action is independent of the bizStep (of type BusinessStepID) which identifies the specific business process step in which the action took place.  allowed values are: - ADD (The entity in question has been created or added to.) - OBSERVE (Theentityinquestionhasnotbeenchanged:ithasneitherbeencreated,addedto,destroyed,orremovedfrom.) - DELETE (The entity in question has been removed from or destroyed altogether.)"
           },
           "dispositionCode": {
@@ -521,10 +713,14 @@
               "$ref": "#/components/schemas/CertificationInfo"
             },
             "description": ""
+          },
+          "integrityLevel": {
+            "type": "string",
+            "description": ""
           }
         }
       },
-      "TradeItem": {
+      "Product": {
         "type": "object",
         "properties": {
           "productID": {
@@ -545,7 +741,6 @@
             "description": "The unique identifier of this logistics label."
           },
           "quantity": {
-            "required": true,
             "type": "string",
             "description": "The actual quantity for this work item quantity analysis."
           },
@@ -554,7 +749,10 @@
             "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/unitOfMeasureCode",
             "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/unitOfMeasureCode\n"
           }
-        }
+        },
+        "required": [
+          "quantity"
+        ]
       },
       "Location": {
         "type": "object",
@@ -579,6 +777,31 @@
           "EvidenceURL": {
             "type": "string",
             "description": ""
+          },
+          "ResponsibleAgency": {
+            "$ref": "#/components/schemas/TradeParty",
+            "description": ""
+          },
+          "theme": {
+            "type": "string",
+            "description": ""
+          },
+          "pillar": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+      "TradeParty": {
+        "type": "object",
+        "properties": {
+          "partyID": {
+            "type": "string",
+            "description": "The unique identifier of this logistics label."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name, expressed as text, for this trade product group."
           }
         }
       },
@@ -614,12 +837,6 @@
           },
           "actionCode": {
             "type": "string",
-            "example": "observe",
-            "enum": [
-              "observe",
-              "add",
-              "delete"
-            ],
             "description": "The Action type says how an event relates to the lifecycle of the entity being described. For example, AggregationEvent is used to capture events related to aggregations of objects, such as cases aggregated to a pallet. Throughout its life, the pallet load participates in many business process steps, each of which may generate an EPCIS event. The action field of each event says how the aggregation itself has changed during the event: have objects been added to the aggregation, have objects been removed from the aggregation, or has the aggregation simply been observed without change to its membership? The action is independent of the bizStep (of type BusinessStepID) which identifies the specific business process step in which the action took place.  allowed values are: - ADD (The entity in question has been created or added to.) - OBSERVE (Theentityinquestionhasnotbeenchanged:ithasneitherbeencreated,addedto,destroyed,orremovedfrom.) - DELETE (The entity in question has been removed from or destroyed altogether.)"
           },
           "dispositionCode": {
@@ -646,19 +863,10 @@
               "$ref": "#/components/schemas/CertificationInfo"
             },
             "description": ""
-          }
-        }
-      },
-      "TradeParty": {
-        "type": "object",
-        "properties": {
-          "partyID": {
-            "type": "string",
-            "description": "The unique identifier of this logistics label."
           },
-          "name": {
+          "integrityLevel": {
             "type": "string",
-            "description": "The name, expressed as text, for this trade product group."
+            "description": ""
           }
         }
       },
@@ -680,13 +888,16 @@
         "type": "object",
         "properties": {
           "parentItem": {
-            "$ref": "#/components/schemas/TradeItem",
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            },
             "description": ""
           },
           "childItems": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TradeItem"
+              "$ref": "#/components/schemas/Product"
             },
             "description": ""
           },
@@ -707,12 +918,6 @@
           },
           "actionCode": {
             "type": "string",
-            "example": "observe",
-            "enum": [
-              "observe",
-              "add",
-              "delete"
-            ],
             "description": "The Action type says how an event relates to the lifecycle of the entity being described. For example, AggregationEvent is used to capture events related to aggregations of objects, such as cases aggregated to a pallet. Throughout its life, the pallet load participates in many business process steps, each of which may generate an EPCIS event. The action field of each event says how the aggregation itself has changed during the event: have objects been added to the aggregation, have objects been removed from the aggregation, or has the aggregation simply been observed without change to its membership? The action is independent of the bizStep (of type BusinessStepID) which identifies the specific business process step in which the action took place.  allowed values are: - ADD (The entity in question has been created or added to.) - OBSERVE (Theentityinquestionhasnotbeenchanged:ithasneitherbeencreated,addedto,destroyed,orremovedfrom.) - DELETE (The entity in question has been removed from or destroyed altogether.)"
           },
           "dispositionCode": {
@@ -739,6 +944,10 @@
               "$ref": "#/components/schemas/CertificationInfo"
             },
             "description": ""
+          },
+          "integrityLevel": {
+            "type": "string",
+            "description": ""
           }
         }
       },
@@ -748,14 +957,14 @@
           "outputItems": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TradeItem"
+              "$ref": "#/components/schemas/Product"
             },
             "description": ""
           },
           "inputItems": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TradeItem"
+              "$ref": "#/components/schemas/Product"
             },
             "description": ""
           },
@@ -780,12 +989,6 @@
           },
           "actionCode": {
             "type": "string",
-            "example": "observe",
-            "enum": [
-              "observe",
-              "add",
-              "delete"
-            ],
             "description": "The Action type says how an event relates to the lifecycle of the entity being described. For example, AggregationEvent is used to capture events related to aggregations of objects, such as cases aggregated to a pallet. Throughout its life, the pallet load participates in many business process steps, each of which may generate an EPCIS event. The action field of each event says how the aggregation itself has changed during the event: have objects been added to the aggregation, have objects been removed from the aggregation, or has the aggregation simply been observed without change to its membership? The action is independent of the bizStep (of type BusinessStepID) which identifies the specific business process step in which the action took place.  allowed values are: - ADD (The entity in question has been created or added to.) - OBSERVE (Theentityinquestionhasnotbeenchanged:ithasneitherbeencreated,addedto,destroyed,orremovedfrom.) - DELETE (The entity in question has been removed from or destroyed altogether.)"
           },
           "dispositionCode": {
@@ -812,6 +1015,102 @@
               "$ref": "#/components/schemas/CertificationInfo"
             },
             "description": ""
+          },
+          "integrityLevel": {
+            "type": "string",
+            "description": ""
+          }
+        }
+      },
+      "TraceabilityGraph": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": ""
+          },
+          "rootItem": {
+            "$ref": "#/components/schemas/Product",
+            "description": ""
+          },
+          "objectEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ObjectEvent"
+            },
+            "description": ""
+          },
+          "aggregationEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AggregationEvent"
+            },
+            "description": ""
+          },
+          "transactionEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransactionEvent"
+            },
+            "description": ""
+          },
+          "transformationEvents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TransformationEvent"
+            },
+            "description": ""
+          }
+        }
+      },
+      "CounterPartyVerificationCallback": {
+        "type": "object",
+        "properties": {
+          "verficationID": {
+            "type": "string",
+            "description": ""
+          },
+          "verificationDateTime": {
+            "type": "string",
+            "format": "date-time",
+            "description": ""
+          },
+          "verificationOutcome": {
+            "type": "string",
+            "description": ""
+          },
+          "transactionVerification": {
+            "$ref": "#/components/schemas/TransactionEvent",
+            "description": ""
+          },
+          "certificateVerification": {
+            "$ref": "#/components/schemas/ObjectEvent",
+            "description": ""
+          }
+        }
+      },
+      "BusinessPartner": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "description": ""
+          },
+          "domain": {
+            "type": "string",
+            "description": ""
+          },
+          "role": {
+            "type": "string",
+            "description": ""
+          },
+          "partyID": {
+            "type": "string",
+            "description": "The unique identifier of this logistics label."
+          },
+          "name": {
+            "type": "string",
+            "description": "The name, expressed as text, for this trade product group."
           }
         }
       },
@@ -878,5 +1177,10 @@
         }
       }
     }
-  }
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ]
 }
