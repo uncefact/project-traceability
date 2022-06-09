@@ -4,7 +4,7 @@ API definitions, JSON-LD vocabulary, and testable mocks for a UN standard supply
 
 Quick link| Status| Description
 --|--|--
-[ITC Vocabulary](https://github.com/uncefact/traceability/blob/main/vocabulary/itc-vocabulary.jsonld) | Raw| JSON-LD Vocabulary of ITC hamronised sustainability criteria
+[ITC Vocabulary](https://github.com/uncefact/traceability/blob/main/vocabulary/itc-vocabulary.jsonld) | Raw| JSON-LD Vocabulary of ITC hamronised sustainability criteria - [human browsable version](https://jargon.sh/user/edi3/itc_sustainability_vocabulary/v/working/artefacts/specification/render#biodiversity)
 [API specification](https://github.com/uncefact/traceability/blob/main/APIs/traceabilityAPI.json)| Raw| RESTful Open API 3.0 specifications - [human browsable versions](https://jargon.sh/redoc.html?url=/user/unece/traceabilityEvents/v/working/artefacts/openapi/render.json)
 Postman collection | | API test client (coming soon)
 GraphQL playground | | test area for trust graph queries (coming soon)
