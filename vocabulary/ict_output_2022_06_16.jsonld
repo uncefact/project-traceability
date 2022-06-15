@@ -618,7 +618,7 @@
             "@id": "itc:CompliancePolicies-degree_of_obligation",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:DegreeOfObligation"
+                "@id": "itc:CompliancePolicies-DegreeOfObligation"
             },
             "schema:domainIncludes": {
                 "@id": "itc:CompliancePolicies"
@@ -638,7 +638,7 @@
             "@id": "itc:CompliancePolicies-degree_of_criticality",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:DegreeOfCriticality"
+                "@id": "itc:CompliancePolicies-DegreeOfCriticality"
             },
             "schema:domainIncludes": {
                 "@id": "itc:CompliancePolicies"
@@ -658,7 +658,7 @@
             "@id": "itc:CompliancePolicies-verification_of_compliance",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:VerificationOfCompliance"
+                "@id": "itc:CompliancePolicies-VerificationOfCompliance"
             },
             "schema:domainIncludes": {
                 "@id": "itc:CompliancePolicies"
@@ -758,7 +758,7 @@
             "@id": "itc:Soil-soil_compaction",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SoilCompaction"
+                "@id": "itc:Soil-SoilCompaction"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Soil"
@@ -798,7 +798,7 @@
             "@id": "itc:Soil-soil_erosion",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SoilErosion"
+                "@id": "itc:Soil-SoilErosion"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Soil"
@@ -878,7 +878,7 @@
             "@id": "itc:Soil-soil_fertility",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SoilFertility"
+                "@id": "itc:Soil-SoilFertility"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Soil"
@@ -938,7 +938,7 @@
             "@id": "itc:Soil-soil_contamination",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SoilContamination"
+                "@id": "itc:Soil-SoilContamination"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Soil"
@@ -1238,7 +1238,7 @@
             "@id": "itc:Forests-the_conversion_of_forests_into_production_lands",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheConversionOfForestsIntoProductionLands"
+                "@id": "itc:Forests-TheConversionOfForestsIntoProductionLands"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Forests"
@@ -1418,7 +1418,7 @@
             "@id": "itc:ChemicalInputs-chemicals_use_and_application_records",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ChemicalsUseAndApplicationRecords"
+                "@id": "itc:ChemicalInputs-ChemicalsUseAndApplicationRecords"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1578,7 +1578,7 @@
             "@id": "itc:ChemicalInputs-use_of_organic_fertilizer",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:UseOfOrganicFertilizer"
+                "@id": "itc:ChemicalInputs-UseOfOrganicFertilizer"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1778,7 +1778,7 @@
             "@id": "itc:ChemicalInputs-prohibition_of_use_of_hazardous_chemicals_as_defined_by_who1a_and_b2_and_the_stockholm_and_rotterdam_conventions",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ProhibitionOfUseOfHazardousChemicalsAsDefinedByWho1aAndB2AndTheStockholmAndRotterdamConventions"
+                "@id": "itc:ChemicalInputs-ProhibitionOfUseOfHazardousChemicalsAsDefinedByWho1aAndB2AndTheStockholmAndRotterdamConventions"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1798,7 +1798,7 @@
             "@id": "itc:ChemicalInputs-use_and_management_of_gmos",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:UseAndManagementOfGmos"
+                "@id": "itc:ChemicalInputs-UseAndManagementOfGmos"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1818,7 +1818,7 @@
             "@id": "itc:ChemicalInputs-risk_prevention_with_regards_to_use_of_gmos",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:RiskPreventionWithRegardsToUseOfGmos"
+                "@id": "itc:ChemicalInputs-RiskPreventionWithRegardsToUseOfGmos"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1878,7 +1878,7 @@
             "@id": "itc:ChemicalInputs-prohibition_of_use_of_hazardous_chemicals_as_defined_by_the_pan_international_list_of_highly_hazardous_pesticides",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ProhibitionOfUseOfHazardousChemicalsAsDefinedByThePanInternationalListOfHighlyHazardousPesticides"
+                "@id": "itc:ChemicalInputs-ProhibitionOfUseOfHazardousChemicalsAsDefinedByThePanInternationalListOfHighlyHazardousPesticides"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -1918,7 +1918,7 @@
             "@id": "itc:ChemicalInputs-respect_list_of_prohibited_chemicals_as_harmful_to_human_health_h_statements_h340_h350_h360",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:RespectListOfProhibitedChemicalsAsHarmfulToHumanHealthHStatementsH340H350H360"
+                "@id": "itc:ChemicalInputs-RespectListOfProhibitedChemicalsAsHarmfulToHumanHealthHStatementsH340H350H360"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ChemicalInputs"
@@ -2038,7 +2038,7 @@
             "@id": "itc:Biodiversity-regulated_and_sustainable_access_to_resources_and_use_of_wildlife_species",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:RegulatedAndSustainableAccessToResourcesAndUseOfWildlifeSpecies"
+                "@id": "itc:Biodiversity-RegulatedAndSustainableAccessToResourcesAndUseOfWildlifeSpecies"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Biodiversity"
@@ -2058,7 +2058,7 @@
             "@id": "itc:Biodiversity-specific_rare_threatened_or_endangered_wildlife_species",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecificRareThreatenedOrEndangeredWildlifeSpecies"
+                "@id": "itc:Biodiversity-SpecificRareThreatenedOrEndangeredWildlifeSpecies"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Biodiversity"
@@ -2278,7 +2278,7 @@
             "@id": "itc:Biodiversity-the_protection_of_ecosystems_against_invasive_species",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheProtectionOfEcosystemsAgainstInvasiveSpecies"
+                "@id": "itc:Biodiversity-TheProtectionOfEcosystemsAgainstInvasiveSpecies"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Biodiversity"
@@ -2478,7 +2478,7 @@
             "@id": "itc:Biodiversity-criteria_and_practices_relating_to_the_clearing_of_land_with_fire_or_explosives",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:CriteriaAndPracticesRelatingToTheClearingOfLandWithFireOrExplosives"
+                "@id": "itc:Biodiversity-CriteriaAndPracticesRelatingToTheClearingOfLandWithFireOrExplosives"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Biodiversity"
@@ -2558,7 +2558,7 @@
             "@id": "itc:Biodiversity-natural_wetlands_and_or_watercourses_affected_by_production",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:NaturalWetlandsAndOrWatercoursesAffectedByProduction"
+                "@id": "itc:Biodiversity-NaturalWetlandsAndOrWatercoursesAffectedByProduction"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Biodiversity"
@@ -2838,7 +2838,7 @@
             "@id": "itc:Livestock-transport_of_animals",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TransportOfAnimals"
+                "@id": "itc:Livestock-TransportOfAnimals"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -2878,7 +2878,7 @@
             "@id": "itc:Livestock-the_use_of_electric_prods_with_livestock",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfElectricProdsWithLivestock"
+                "@id": "itc:Livestock-TheUseOfElectricProdsWithLivestock"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -2898,7 +2898,7 @@
             "@id": "itc:Livestock-techniques_to_be_used_for_animal_identification_and_or_castration",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TechniquesToBeUsedForAnimalIdentificationAndOrCastration"
+                "@id": "itc:Livestock-TechniquesToBeUsedForAnimalIdentificationAndOrCastration"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -2918,7 +2918,7 @@
             "@id": "itc:Livestock-animal_physical_integrity_eg_removing_of_tails_ears_nose_wings_horns_or_other_body_parts",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AnimalPhysicalIntegrityEgRemovingOfTailsEarsNoseWingsHornsOrOtherBodyParts"
+                "@id": "itc:Livestock-AnimalPhysicalIntegrityEgRemovingOfTailsEarsNoseWingsHornsOrOtherBodyParts"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -2958,7 +2958,7 @@
             "@id": "itc:Livestock-livestock_density_following_at_least_official_regulations_e_g_ec_regulation8892008",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:LivestockDensityFollowingAtLeastOfficialRegulationsEGEcRegulation8892008"
+                "@id": "itc:Livestock-LivestockDensityFollowingAtLeastOfficialRegulationsEGEcRegulation8892008"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -2978,7 +2978,7 @@
             "@id": "itc:Livestock-outdoor_access_livestock",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:OutdoorAccessLivestock"
+                "@id": "itc:Livestock-OutdoorAccessLivestock"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3018,7 +3018,7 @@
             "@id": "itc:Livestock-animal_housing",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AnimalHousing"
+                "@id": "itc:Livestock-AnimalHousing"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3238,7 +3238,7 @@
             "@id": "itc:Livestock-specific_origin_of_animal_feed",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecificOriginOfAnimalFeed"
+                "@id": "itc:Livestock-SpecificOriginOfAnimalFeed"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3258,7 +3258,7 @@
             "@id": "itc:Livestock-special_quality_of_animal_feed",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecialQualityOfAnimalFeed"
+                "@id": "itc:Livestock-SpecialQualityOfAnimalFeed"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3278,7 +3278,7 @@
             "@id": "itc:Livestock-special_requirements_for_organic_animal_feed",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecialRequirementsForOrganicAnimalFeed"
+                "@id": "itc:Livestock-SpecialRequirementsForOrganicAnimalFeed"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3298,7 +3298,7 @@
             "@id": "itc:Livestock-animals_medication",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AnimalsMedication"
+                "@id": "itc:Livestock-AnimalsMedication"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Livestock"
@@ -3378,7 +3378,7 @@
             "@id": "itc:Waste-air_quality_pollution_monitoring",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AirQualityPollutionMonitoring"
+                "@id": "itc:Waste-AirQualityPollutionMonitoring"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3398,7 +3398,7 @@
             "@id": "itc:Waste-air_pollution_along_the_textiles_production_process_ssct",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AirPollutionAlongTheTextilesProductionProcessSsct"
+                "@id": "itc:Waste-AirPollutionAlongTheTextilesProductionProcessSsct"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3618,7 +3618,7 @@
             "@id": "itc:Waste-specific_requirements_for_handling_disposal_of_waste_by_third_parties",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecificRequirementsForHandlingDisposalOfWasteByThirdParties"
+                "@id": "itc:Waste-SpecificRequirementsForHandlingDisposalOfWasteByThirdParties"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3638,7 +3638,7 @@
             "@id": "itc:Waste-practices_related_to_the_use_of_fire_to_eliminate_waste",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:PracticesRelatedToTheUseOfFireToEliminateWaste"
+                "@id": "itc:Waste-PracticesRelatedToTheUseOfFireToEliminateWaste"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3658,7 +3658,7 @@
             "@id": "itc:Waste-principles_and_practices_related_to_avoidance_of_uncontrolled_waste_landfilling",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:PrinciplesAndPracticesRelatedToAvoidanceOfUncontrolledWasteLandfilling"
+                "@id": "itc:Waste-PrinciplesAndPracticesRelatedToAvoidanceOfUncontrolledWasteLandfilling"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3778,7 +3778,7 @@
             "@id": "itc:Waste-monitoring_and_measuring_solid_waste_volumes",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:MonitoringAndMeasuringSolidWasteVolumes"
+                "@id": "itc:Waste-MonitoringAndMeasuringSolidWasteVolumes"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3818,7 +3818,7 @@
             "@id": "itc:Waste-monitoring_and_measuring_waste_toxicity",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:MonitoringAndMeasuringWasteToxicity"
+                "@id": "itc:Waste-MonitoringAndMeasuringWasteToxicity"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Waste"
@@ -3898,7 +3898,7 @@
             "@id": "itc:Water-water_resources_monitoring_use_and_consumption",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WaterResourcesMonitoringUseAndConsumption"
+                "@id": "itc:Water-WaterResourcesMonitoringUseAndConsumption"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -3958,7 +3958,7 @@
             "@id": "itc:Water-quality_of_water_used_in_production_agriculture_forestry",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:QualityOfWaterUsedInProductionAgricultureForestry"
+                "@id": "itc:Water-QualityOfWaterUsedInProductionAgricultureForestry"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4138,7 +4138,7 @@
             "@id": "itc:Water-wastewater_quality_management_and_treatment",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WastewaterQualityManagementAndTreatment"
+                "@id": "itc:Water-WastewaterQualityManagementAndTreatment"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4158,7 +4158,7 @@
             "@id": "itc:Water-limitations_of_wastewater_volume",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:LimitationsOfWastewaterVolume"
+                "@id": "itc:Water-LimitationsOfWastewaterVolume"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4178,7 +4178,7 @@
             "@id": "itc:Water-wastewater_basic_parameters_for_textile_industry",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WastewaterBasicParametersForTextileIndustry"
+                "@id": "itc:Water-WastewaterBasicParametersForTextileIndustry"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4198,7 +4198,7 @@
             "@id": "itc:Water-wastewater_advanced_parameters_for_textile_industry",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WastewaterAdvancedParametersForTextileIndustry"
+                "@id": "itc:Water-WastewaterAdvancedParametersForTextileIndustry"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4218,7 +4218,7 @@
             "@id": "itc:Water-wastewater_parameters_for_paper_industry",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WastewaterParametersForPaperIndustry"
+                "@id": "itc:Water-WastewaterParametersForPaperIndustry"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Water"
@@ -4238,7 +4238,7 @@
             "@id": "itc:Energy-energy_consumption_monitoring_recording",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:EnergyConsumptionMonitoringRecording"
+                "@id": "itc:Energy-EnergyConsumptionMonitoringRecording"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-Energy"
@@ -4518,7 +4518,7 @@
             "@id": "itc:ClimateCarbon-the_protection_of_high_carbon_landscapes_land_with_high_carbon_stock_hcs",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheProtectionOfHighCarbonLandscapesLandWithHighCarbonStockHcs"
+                "@id": "itc:ClimateCarbon-TheProtectionOfHighCarbonLandscapesLandWithHighCarbonStockHcs"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ClimateCarbon"
@@ -4718,7 +4718,7 @@
             "@id": "itc:ClimateCarbon-monitoring_ghg_carbon_emissions",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:MonitoringGhgCarbonEmissions"
+                "@id": "itc:ClimateCarbon-MonitoringGhgCarbonEmissions"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-ClimateCarbon"
@@ -4878,7 +4878,7 @@
             "@id": "itc:SsctAndOther-the_use_of_synthetic_pesticides",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfSyntheticPesticides"
+                "@id": "itc:SsctAndOther-TheUseOfSyntheticPesticides"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -4898,7 +4898,7 @@
             "@id": "itc:SsctAndOther-the_use_of_chlorine_gas_as_bleaching_agent",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfChlorineGasAsBleachingAgent"
+                "@id": "itc:SsctAndOther-TheUseOfChlorineGasAsBleachingAgent"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -4918,7 +4918,7 @@
             "@id": "itc:SsctAndOther-chemicals_described_as_a_risk_to_the_environment",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ChemicalsDescribedAsARiskToTheEnvironment"
+                "@id": "itc:SsctAndOther-ChemicalsDescribedAsARiskToTheEnvironment"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -4938,7 +4938,7 @@
             "@id": "itc:SsctAndOther-chemicals_described_as_a_risk_to_human_health",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ChemicalsDescribedAsARiskToHumanHealth"
+                "@id": "itc:SsctAndOther-ChemicalsDescribedAsARiskToHumanHealth"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -4958,7 +4958,7 @@
             "@id": "itc:SsctAndOther-testing_the_final_product_regarding_accumulation_of_chemical_residues",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TestingTheFinalProductRegardingAccumulationOfChemicalResidues"
+                "@id": "itc:SsctAndOther-TestingTheFinalProductRegardingAccumulationOfChemicalResidues"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5038,7 +5038,7 @@
             "@id": "itc:SsctAndOther-the_production_of_natural_fibres",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheProductionOfNaturalFibres"
+                "@id": "itc:SsctAndOther-TheProductionOfNaturalFibres"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5058,7 +5058,7 @@
             "@id": "itc:SsctAndOther-the_production_of_synthetic_fibers",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheProductionOfSyntheticFibers"
+                "@id": "itc:SsctAndOther-TheProductionOfSyntheticFibers"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5078,7 +5078,7 @@
             "@id": "itc:SsctAndOther-the_usage_of_recycled_fibres",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUsageOfRecycledFibres"
+                "@id": "itc:SsctAndOther-TheUsageOfRecycledFibres"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5098,7 +5098,7 @@
             "@id": "itc:SsctAndOther-on_synthetic_fertilizers",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:OnSyntheticFertilizers"
+                "@id": "itc:SsctAndOther-OnSyntheticFertilizers"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5118,7 +5118,7 @@
             "@id": "itc:SsctAndOther-the_use_of_wooden_fibres",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfWoodenFibres"
+                "@id": "itc:SsctAndOther-TheUseOfWoodenFibres"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5138,7 +5138,7 @@
             "@id": "itc:SsctAndOther-energy_consumption_in_the_production_phase",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:EnergyConsumptionInTheProductionPhase"
+                "@id": "itc:SsctAndOther-EnergyConsumptionInTheProductionPhase"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5158,7 +5158,7 @@
             "@id": "itc:SsctAndOther-the_usage_of_renewable_energy_in_the_production_phase_of_the_hardware",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUsageOfRenewableEnergyInTheProductionPhaseOfTheHardware"
+                "@id": "itc:SsctAndOther-TheUsageOfRenewableEnergyInTheProductionPhaseOfTheHardware"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5178,7 +5178,7 @@
             "@id": "itc:SsctAndOther-f_ghg_emissions",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:FGhgEmissions"
+                "@id": "itc:SsctAndOther-FGhgEmissions"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5198,7 +5198,7 @@
             "@id": "itc:SsctAndOther-power_consumption_and_power_management_during_the_use_phase",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:PowerConsumptionAndPowerManagementDuringTheUsePhase"
+                "@id": "itc:SsctAndOther-PowerConsumptionAndPowerManagementDuringTheUsePhase"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5238,7 +5238,7 @@
             "@id": "itc:SsctAndOther-h_statements_h340_h341_h350_h351_h360_h361",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:HStatementsH340H341H350H351H360H361"
+                "@id": "itc:SsctAndOther-HStatementsH340H341H350H351H360H361"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5258,7 +5258,7 @@
             "@id": "itc:SsctAndOther-the_use_of_mercury_cadmium_lead_chromium_vi",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfMercuryCadmiumLeadChromiumVi"
+                "@id": "itc:SsctAndOther-TheUseOfMercuryCadmiumLeadChromiumVi"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5278,7 +5278,7 @@
             "@id": "itc:SsctAndOther-the_use_of_flame_retardants",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfFlameRetardants"
+                "@id": "itc:SsctAndOther-TheUseOfFlameRetardants"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5298,7 +5298,7 @@
             "@id": "itc:SsctAndOther-the_use_of_plasticizers_with_adverse_environmental_and_health_impact",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfPlasticizersWithAdverseEnvironmentalAndHealthImpact"
+                "@id": "itc:SsctAndOther-TheUseOfPlasticizersWithAdverseEnvironmentalAndHealthImpact"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5318,7 +5318,7 @@
             "@id": "itc:SsctAndOther-the_use_of_biocides_in_the_finishing_process",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfBiocidesInTheFinishingProcess"
+                "@id": "itc:SsctAndOther-TheUseOfBiocidesInTheFinishingProcess"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5338,7 +5338,7 @@
             "@id": "itc:SsctAndOther-the_use_of_polymers_containing_halogens",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfPolymersContainingHalogens"
+                "@id": "itc:SsctAndOther-TheUseOfPolymersContainingHalogens"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5378,7 +5378,7 @@
             "@id": "itc:SsctAndOther-the_recyclability_of_plastics_used",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheRecyclabilityOfPlasticsUsed"
+                "@id": "itc:SsctAndOther-TheRecyclabilityOfPlasticsUsed"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5438,7 +5438,7 @@
             "@id": "itc:SsctAndOther-environmental_responsible_mining_practices",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:EnvironmentalResponsibleMiningPractices"
+                "@id": "itc:SsctAndOther-EnvironmentalResponsibleMiningPractices"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5458,7 +5458,7 @@
             "@id": "itc:SsctAndOther-the_use_of_recycled_material_in_the_packaging",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfRecycledMaterialInThePackaging"
+                "@id": "itc:SsctAndOther-TheUseOfRecycledMaterialInThePackaging"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5478,7 +5478,7 @@
             "@id": "itc:SsctAndOther-the_use_of_postconsumer_recycled_content_in_the_product",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfPostconsumerRecycledContentInTheProduct"
+                "@id": "itc:SsctAndOther-TheUseOfPostconsumerRecycledContentInTheProduct"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5518,7 +5518,7 @@
             "@id": "itc:SsctAndOther-environmental_management_instruments_like_emas_or_iso14001",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:EnvironmentalManagementInstrumentsLikeEmasOrIso14001"
+                "@id": "itc:SsctAndOther-EnvironmentalManagementInstrumentsLikeEmasOrIso14001"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5538,7 +5538,7 @@
             "@id": "itc:SsctAndOther-the_use_of_formaldehyde",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfFormaldehyde"
+                "@id": "itc:SsctAndOther-TheUseOfFormaldehyde"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5558,7 +5558,7 @@
             "@id": "itc:SsctAndOther-an_additional_lifetime_guarantee_for_the_product_beyond_the_legal_obligations",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:AnAdditionalLifetimeGuaranteeForTheProductBeyondTheLegalObligations"
+                "@id": "itc:SsctAndOther-AnAdditionalLifetimeGuaranteeForTheProductBeyondTheLegalObligations"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5618,7 +5618,7 @@
             "@id": "itc:SsctAndOther-the_availability_of_spare_parts_for_the_product",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheAvailabilityOfSparePartsForTheProduct"
+                "@id": "itc:SsctAndOther-TheAvailabilityOfSparePartsForTheProduct"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5758,7 +5758,7 @@
             "@id": "itc:SsctAndOther-the_use_of_nanomaterials",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfNanomaterials"
+                "@id": "itc:SsctAndOther-TheUseOfNanomaterials"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5818,7 +5818,7 @@
             "@id": "itc:SsctAndOther-the_use_of_flame_retardants",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfFlameRetardants"
+                "@id": "itc:SsctAndOther-TheUseOfFlameRetardants"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5858,7 +5858,7 @@
             "@id": "itc:SsctAndOther-the_use_of_dyes_or_pigments_based_on_lead_copper_chromium_nickel_and_aluminum",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfDyesOrPigmentsBasedOnLeadCopperChromiumNickelAndAluminum"
+                "@id": "itc:SsctAndOther-TheUseOfDyesOrPigmentsBasedOnLeadCopperChromiumNickelAndAluminum"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -5878,7 +5878,7 @@
             "@id": "itc:SsctAndOther-the_use_of_azo_dyes_that_may_cleave_aromatic_amines_which_are_harmful_to_human_health",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:TheUseOfAzoDyesThatMayCleaveAromaticAminesWhichAreHarmfulToHumanHealth"
+                "@id": "itc:SsctAndOther-TheUseOfAzoDyesThatMayCleaveAromaticAminesWhichAreHarmfulToHumanHealth"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Environment-SsctAndOther"
@@ -6058,7 +6058,7 @@
             "@id": "itc:HumanRights-socio_cultural_sites",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SocioCulturalSites"
+                "@id": "itc:HumanRights-SocioCulturalSites"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-HumanRights"
@@ -6258,7 +6258,7 @@
             "@id": "itc:HumanRights-compensation_for_use_of_local_communities_facilities",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:CompensationForUseOfLocalCommunitiesFacilities"
+                "@id": "itc:HumanRights-CompensationForUseOfLocalCommunitiesFacilities"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-HumanRights"
@@ -6418,7 +6418,7 @@
             "@id": "itc:HumanRights-grievance_mechanisms_for_affected_communities",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:GrievanceMechanismsForAffectedCommunities"
+                "@id": "itc:HumanRights-GrievanceMechanismsForAffectedCommunities"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-HumanRights"
@@ -6858,7 +6858,7 @@
             "@id": "itc:ConditionsOfWork-occupational_health_and_safety_as_defined_in_ilo155",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:OccupationalHealthAndSafetyAsDefinedInIlo155"
+                "@id": "itc:ConditionsOfWork-OccupationalHealthAndSafetyAsDefinedInIlo155"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-ConditionsOfWork"
@@ -7098,7 +7098,7 @@
             "@id": "itc:ConditionsOfWork-workplace_conditions_air_quality_lighting_noise",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WorkplaceConditionsAirQualityLightingNoise"
+                "@id": "itc:ConditionsOfWork-WorkplaceConditionsAirQualityLightingNoise"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-ConditionsOfWork"
@@ -7158,7 +7158,7 @@
             "@id": "itc:ConditionsOfWork-workers_access_to_basic_medical_services",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WorkersAccessToBasicMedicalServices"
+                "@id": "itc:ConditionsOfWork-WorkersAccessToBasicMedicalServices"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-ConditionsOfWork"
@@ -7318,7 +7318,7 @@
             "@id": "itc:ConditionsOfWork-safety_at_work_ilo184",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SafetyAtWorkIlo184"
+                "@id": "itc:ConditionsOfWork-SafetyAtWorkIlo184"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-ConditionsOfWork"
@@ -7778,7 +7778,7 @@
             "@id": "itc:Employment-paid_leave_general_policy_public_holidays_annual_leave_sick_leave_casual_leave",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:PaidLeaveGeneralPolicyPublicHolidaysAnnualLeaveSickLeaveCasualLeave"
+                "@id": "itc:Employment-PaidLeaveGeneralPolicyPublicHolidaysAnnualLeaveSickLeaveCasualLeave"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-Employment"
@@ -7818,7 +7818,7 @@
             "@id": "itc:Employment-specific_maternity_paternity_leave_days",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SpecificMaternityPaternityLeaveDays"
+                "@id": "itc:Employment-SpecificMaternityPaternityLeaveDays"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-Employment"
@@ -7858,7 +7858,7 @@
             "@id": "itc:Employment-fair_and_timely_payment_of_wages",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:FairAndTimelyPaymentOfWages"
+                "@id": "itc:Employment-FairAndTimelyPaymentOfWages"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-Employment"
@@ -8398,7 +8398,7 @@
             "@id": "itc:Employment-workers_compensation_for_medical_costs_in_case_of_work_related_accidents",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:WorkersCompensationForMedicalCostsInCaseOfWorkRelatedAccidents"
+                "@id": "itc:Employment-WorkersCompensationForMedicalCostsInCaseOfWorkRelatedAccidents"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-Employment"
@@ -8438,7 +8438,7 @@
             "@id": "itc:HumanDevelopment-formation_of_workers_representation_in_countries_where_freedom_of_association_and_collective_bargaining_is_not_supported_by_legislation",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:FormationOfWorkersRepresentationInCountriesWhereFreedomOfAssociationAndCollectiveBargainingIsNotSupportedByLegislation"
+                "@id": "itc:HumanDevelopment-FormationOfWorkersRepresentationInCountriesWhereFreedomOfAssociationAndCollectiveBargainingIsNotSupportedByLegislation"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Social-HumanDevelopment"
@@ -9318,7 +9318,7 @@
             "@id": "itc:SustainabilityManagement-risks_and_impacts_on_water_levels_of_water_resources_used_surface_and_or_ground_water",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:RisksAndImpactsOnWaterLevelsOfWaterResourcesUsedSurfaceAndOrGroundWater"
+                "@id": "itc:SustainabilityManagement-RisksAndImpactsOnWaterLevelsOfWaterResourcesUsedSurfaceAndOrGroundWater"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Management-SustainabilityManagement"
@@ -9338,7 +9338,7 @@
             "@id": "itc:SustainabilityManagement-risks_and_impacts_on_water_quality_of_water_resources_used_surface_and_or_ground_water",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:RisksAndImpactsOnWaterQualityOfWaterResourcesUsedSurfaceAndOrGroundWater"
+                "@id": "itc:SustainabilityManagement-RisksAndImpactsOnWaterQualityOfWaterResourcesUsedSurfaceAndOrGroundWater"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Management-SustainabilityManagement"
@@ -9358,7 +9358,7 @@
             "@id": "itc:SustainabilityManagement-environmental_risks_and_impacts",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:EnvironmentalRisksAndImpacts"
+                "@id": "itc:SustainabilityManagement-EnvironmentalRisksAndImpacts"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Management-SustainabilityManagement"
@@ -9878,7 +9878,7 @@
             "@id": "itc:SupplyChain-supply_chain_responsibility_beyond_primary_production",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:SupplyChainResponsibilityBeyondPrimaryProduction"
+                "@id": "itc:SupplyChain-SupplyChainResponsibilityBeyondPrimaryProduction"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Management-SupplyChain"
@@ -10538,7 +10538,7 @@
             "@id": "itc:TechnicalSpecifications-does_the_standard_cover_the_quality_of_textiles",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:DoesTheStandardCoverTheQualityOfTextiles"
+                "@id": "itc:TechnicalSpecifications-DoesTheStandardCoverTheQualityOfTextiles"
             },
             "schema:domainIncludes": {
                 "@id": "itc:NonFoodProducts-TechnicalSpecifications"
@@ -18098,7 +18098,7 @@
             "@id": "itc:ComplianceToLegislation-compliance_to_national_and_regional_environmental_laws_and_regulations",
             "@type": "rdf:Property",
             "schema:rangeIncludes": {
-                "@id": "itc:ComplianceToNationalAndRegionalEnvironmentalLawsAndRegulations"
+                "@id": "itc:ComplianceToLegislation-ComplianceToNationalAndRegionalEnvironmentalLawsAndRegulations"
             },
             "schema:domainIncludes": {
                 "@id": "itc:Ethics-ComplianceToLegislation"
