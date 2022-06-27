@@ -1,0 +1,22 @@
+{
+  "itemList": [
+    {
+      "id": "string",
+      "name": "string"
+    }
+  ],
+  "quantityList": [
+    {
+      "productClass": "string",
+      "quantity": "string",
+      "uom": "string"
+    }
+  ],
+  "eventID": "d66eb199-edae-4511-96e7-d2277ccf1d87",
+  "eventTime": "2019-08-24T14:15:22Z",
+  "actionCode": "string",
+  "dispositionCode": "string",
+  "businessStepCode": "string",
+  "readPointId": "string",
+  "locationId": "string"
+} 
