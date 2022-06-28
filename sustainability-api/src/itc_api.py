@@ -1,5 +1,5 @@
 from datetime import datetime
-from typing import List
+from typing import List, Optional
 from uuid import UUID, uuid4
 
 from boto3.dynamodb import types as _
@@ -53,12 +53,12 @@ class ObjectEventQuantityItem(BaseModel):
 class ObjectEventBase(BaseModel):
     itemList: List[ObjectEventItem]
     quantityList: List[ObjectEventQuantityItem]
-    eventTime: datetime | None = None
-    actionCode: str | None = None
-    dispositionCode: str | None = None
-    businessStepCode: str | None = None
-    readPointId: str  | None= None
-    locationId: str | None = None
+    eventTime: Optional[datetime]
+    actionCode: Optional[str]
+    dispositionCode: Optional[str]
+    businessStepCode: Optional[str]
+    readPointId: Optional[str]
+    locationId: Optional[str]
     
 class ObjectEvent(ObjectEventBase):
     eventID: UUID
@@ -71,7 +71,6 @@ async def root():
 
 @app.post("/objectEvents", status_code=status.HTTP_201_CREATED)
 async def post_objectEvent(event: ObjectEventBase) -> ObjectEvent:
-    print(event)
     event = ObjectEvent(eventID = uuid4(), **dict(event))
     data = event.json().replace('"', "'")
     response = db.execute_statement(
