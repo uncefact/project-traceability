@@ -15,7 +15,7 @@ env.read_env('env-local')
 
 aws_endpoint_url = env('AWS_ENDPOINT', default=None)
 
-db = boto3.client('dynamodb', endpoint_url=aws_endpoint_url)
+db = boto3.client('dynamodb', verify=False, endpoint_url=aws_endpoint_url)
 
 response = db.list_tables()
 
