@@ -1,0 +1,46 @@
+version: "3.4"
+services:
+  sust-fastapi:
+    container_name: sust-fastapi
+    tty: true
+    build: &build
+      context: .  # sustainability-api/
+      dockerfile: ./Dockerfile-lambda
+      args:
+        - REQUIREMENTS=requirements.txt
+        # Override with extra development requirements:
+        #- REQUIREMENTS=requirements_dev.txt
+    volumes:
+      - ~/.aws-lambda-rie:/aws-lambda
+      # Mount your current local code dir over the container one, so that
+      # you don't have to rebuild container each time you change the code
+      # NOTE: Don't forget to launch collectstatic locally, as all the
+      # files inside the container dir will be overriden with this
+      #- ../../src:/app
+    env_file:
+      - ./env-default
+    entrypoint: "bash -c '/aws-lambda/aws-lambda-rie python -m awslambdaric src.itc_api.handler'"
+    ports:
+      - target: 8080  # aws-lambda-rie
+        published: 8000
+    depends_on:
+      - localstack
+    links:
+      - localstack
+      
+  localstack:
+    container_name: localstack-compose
+    image: localstack/localstack
+    ports:
+      - "127.0.0.1:4510-4559:4510-4559"  # external service port range
+      - "127.0.0.1:4566:4566"            # LocalStack Edge Proxy
+    environment:
+      - DEBUG=${DEBUG-}
+      - DATA_DIR=${DATA_DIR-}
+      - LAMBDA_EXECUTOR=${LAMBDA_EXECUTOR-}
+      - LOCALSTACK_API_KEY=${LOCALSTACK_API_KEY-}  # only required for Pro
+      - HOST_TMP_FOLDER=${TMPDIR:-/tmp/}localstack
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"

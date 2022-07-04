@@ -1,0 +1,11 @@
+*.pyc
+*~
+*.egg-info/
+
+env-local
+build/
+dist/
+.pytest_cache/
+.tox/
+.pdm.toml
+__pypackages__/
