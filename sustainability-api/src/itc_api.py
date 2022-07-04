@@ -2,13 +2,14 @@ from datetime import datetime
 from typing import List, Optional
 from uuid import UUID, uuid4
 
-from boto3.dynamodb import types as _
+
 from fastapi import FastAPI, HTTPException, status
 from mangum import Mangum
 from pydantic import BaseModel
 import boto3
 import environ
 
+from . import common
 
 env = environ.Env()
 env.read_env('env-local')
@@ -80,11 +81,6 @@ async def post_objectEvent(event: ObjectEventBase) -> ObjectEvent:
     return event
 
 
-ddbparser = boto3.dynamodb.types.TypeDeserializer()
-
-def db_to_json(data):
-    return {k: ddbparser.deserialize(value=data[k]) for k in data}
-
 
 @app.get("/objectEvents/{eventID}")
 async def get_objectEvent(eventID: UUID) -> ObjectEvent:
@@ -92,17 +88,29 @@ async def get_objectEvent(eventID: UUID) -> ObjectEvent:
         Statement=f"SELECT * FROM ObjectEvent WHERE eventID='{eventID}'",
     )
     if response.get('Items'):
-        return db_to_json(response['Items'][0])
+        return common.db_to_json(response['Items'][0])
     else:
         raise HTTPException(status_code=404, detail="Item not found")
  
 
+class ObjectEventsQueryResponse(BaseModel):
+    items: List[ObjectEvent]
+    hasMorePages: bool
+    nextPageToken: Optional[str]
+    
+    
 @app.get("/objectEvents/")
-async def get_objectEvents() -> List[ObjectEvent]:
+async def get_objectEvents(nextPageToken: Optional[str] = None) -> ObjectEventsQueryResponse:
     response = db.execute_statement(
         Statement=f"SELECT * FROM ObjectEvent",
+        **{'NextToken': nextPageToken} if nextPageToken else {}
     )
-    return [db_to_json(x) for x in response.get('Items', [])]
+    items = [common.db_to_json(x) for x in response.get('Items', [])]
+    
+    if 'LastEvaluatedKey' in response:
+        return {'items': items, 'hasMorePages': True, 'nextPageToken': response['NextToken']}
+    
+    return {'items': items, 'hasMorePages': False}
  
 
 
