@@ -9,7 +9,7 @@ from pydantic import BaseModel
 import boto3
 import environ
 
-from . import common
+import common
 
 env = environ.Env()
 env.read_env('env-local')

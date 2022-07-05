@@ -1,0 +1,6 @@
+name: sustainability
+runtime:
+  name: python
+#  options:
+#    virtualenv: venv
+description: An AWS Python Pulumi program for sustainability api mock deployment
