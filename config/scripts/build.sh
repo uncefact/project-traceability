@@ -8,11 +8,10 @@ if [ -d "tmp" ]; then
   rm -rf "tmp"
 fi
 mkdir "tmp"
-cp -r ../../mocks/sustainability-api/* "tmp"
+cp -r ../mock/* "tmp"
 cd "tmp"
 pdm sync --prod --no-editable
 cd __pypackages__/3.9/lib
 zip -r ../../../deployment-package.zip .
 cd ../../../src
-
 zip -g ../deployment-package.zip *.py

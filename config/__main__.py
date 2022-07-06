@@ -64,7 +64,7 @@ def swagger_route_handler(arn, openapi_):
 #                                   body=lambda_func.arn.apply(lambda arn: json.dumps(swagger_route_handler(arn, openapi))))
 
 
-with open("../../apis/sustainability-api/openapi.json", encoding="utf-8") as f:
+with open("../api/openapi.json", encoding="utf-8") as f:
     read_data = f.read()
 f.closed
 

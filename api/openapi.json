@@ -1319,19 +1319,19 @@
           }
         }
       },
-      "Template_ErrorSchema": {
+      "TemplateErrorSchema": {
         "type": "object",
         "properties": {
           "errors": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Template_Error"
+              "$ref": "#/components/schemas/TemplateError"
             },
             "description": ""
           }
         }
       },
-      "Template_Error": {
+      "TemplateError": {
         "type": "object",
         "properties": {
           "id": {
@@ -1348,12 +1348,12 @@
             "description": ""
           },
           "source": {
-            "$ref": "#/components/schemas/Template_ErrorSource",
+            "$ref": "#/components/schemas/TemplateErrorSource",
             "description": ""
           }
         }
       },
-      "Template_ErrorSource": {
+      "TemplateErrorSource": {
         "type": "object",
         "properties": {
           "pointer": {
