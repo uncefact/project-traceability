@@ -1,13 +1,13 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "description": "# Introduction\nThis template is intended to to be a good starting point for describing\nhow users can interact with the various methods of your API. \nWe recommend informing the user about various aspects of your api such as:\n\n\n# Getting Started\n\n## Using The API\n\n## Extra Developer Documentation:\nIf you have more developer documentation or tutorials specific to helping\ndevelopers interact with this endpoint.\n**url:** 'https://example.com/documentation/link'\n\n# Uptime & Planned Outages\n\n# Authentication & Rate Limits\n# Terms of Use, Copyright and Attribution\nPlease ensure you comply with the following policies prior to using any data\nwithin this API.\n\n- [Terms of Use](https://example.com/terms-use)\n- [Privacy Policy](https://example.com/privacy)\n\n# Contact Us\n",
+    "description": "# Introduction\nThis API specification defines a standards based framework for the automation of reporting traceability event data based on UN/CEFACT and GS1 standards. For more details please refer to the project github at https://github.com/uncefact/traceability\n# Getting Started\nCurrently the API is only a draft specification. Once a testable mock has been deployed, access details and test data (postman collection) will be provided here.\n# Terms of Use, Copyright and Attribution\nThis API specification has been developed under the terms of the [UN/CEFACT IPR policy](https://digitallibrary.un.org/record/575449?ln=en) and is freely available for use.\n# Contact Us\nluca.brunello@un.org ",
     "contact": {
-      "email": "you@example.com",
-      "url": "https://example.com/help"
+      "email": "luca.brunello@un.org",
+      "url": "https://github.com/uncefact/traceability"
     },
     "version": "unreleased",
-    "title": "Untitled API"
+    "title": "Traceability API"
   },
   "paths": {
     "/objectEvents": {
@@ -58,13 +58,16 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/objectEvents?page=1&limit=10'\n\nPage 2: '/objectEvents?page=2&limit=10'\n\n                    ",
+        "description": "Object represents an event that happened to one or more physical or digital objects - such as an inspection or certification of a product or shipment. The physucal objects may be identified either as specific items (eg a unique consignment number) or as a quantified amount of a product class (eg 100Kg of cotton yarn)\n\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/objectEvents?page=1&limit=10'\n\nPage 2: '/objectEvents?page=2&limit=10'\n\n",
         "security": [
           {
             "main_auth": [
               "read:users",
               "write:users"
             ]
+          },
+          {
+            "api_key": []
           }
         ]
       }
@@ -99,7 +102,12 @@
         },
         "summary": "Get a ObjectEvent",
         "operationId": "getObjectEventById",
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Object represents an event that happened to one or more physical or digital objects - such as an inspection or certification of a product or shipment. The physucal objects may be identified either as specific items (eg a unique consignment number) or as a quantified amount of a product class (eg 100Kg of cotton yarn)\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -139,7 +147,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Object represents an event that happened to one or more physical or digital objects - such as an inspection or certification of a product or shipment. The physucal objects may be identified either as specific items (eg a unique consignment number) or as a quantified amount of a product class (eg 100Kg of cotton yarn)\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/transactionEvents": {
@@ -171,7 +184,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Transaction represents an event in which one or more objects become associated or disassociated with one or more identified business transactions - such as the purchase / shipment of goods between buyer and seller.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/transactionEvents/{eventID}": {
@@ -203,7 +221,13 @@
           }
         },
         "summary": "Get a TransactionEvent",
-        "operationId": "getTransactionEventById"
+        "operationId": "getTransactionEventById",
+        "description": "Transaction represents an event in which one or more objects become associated or disassociated with one or more identified business transactions - such as the purchase / shipment of goods between buyer and seller.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -243,7 +267,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Transaction represents an event in which one or more objects become associated or disassociated with one or more identified business transactions - such as the purchase / shipment of goods between buyer and seller.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/aggregationEvents": {
@@ -275,7 +304,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Aggregation represents an event that happened to one or more objects that are physically aggregated together (physically constrained to be in the same place at the same time, as when cases are aggregated to a pallet).  This event is also used to represent de-aggregation (eg unpacking) when businessStepCode is unpacking.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/aggregationEvents/{eventID}": {
@@ -307,7 +341,13 @@
           }
         },
         "summary": "Get a AggregationEvent",
-        "operationId": "getAggregationEventById"
+        "operationId": "getAggregationEventById",
+        "description": "Aggregation represents an event that happened to one or more objects that are physically aggregated together (physically constrained to be in the same place at the same time, as when cases are aggregated to a pallet).  This event is also used to represent de-aggregation (eg unpacking) when businessStepCode is unpacking.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -347,7 +387,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Aggregation represents an event that happened to one or more objects that are physically aggregated together (physically constrained to be in the same place at the same time, as when cases are aggregated to a pallet).  This event is also used to represent de-aggregation (eg unpacking) when businessStepCode is unpacking.",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/transformationEvents": {
@@ -379,7 +424,12 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Transformation represents an event in which input objects are fully or partially consumed and output objects are produced, such that any of the input objects may have contributed to all of the output objects - for example consuming bales of cotton to produce yarn.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/transformationEvents/{eventID}": {
@@ -411,7 +461,13 @@
           }
         },
         "summary": "Get a TransformationEvent",
-        "operationId": "getTransformationEventById"
+        "operationId": "getTransformationEventById",
+        "description": "Transformation represents an event in which input objects are fully or partially consumed and output objects are produced, such that any of the input objects may have contributed to all of the output objects - for example consuming bales of cotton to produce yarn.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -451,18 +507,60 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "Transformation represents an event in which input objects are fully or partially consumed and output objects are produced, such that any of the input objects may have contributed to all of the output objects - for example consuming bales of cotton to produce yarn.\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       }
     },
-    "/traceabilityGraphs/{id}/itemTraceability": {
+    "/verificationCallbacks": {
+      "post": {
+        "tags": [
+          "VerificationCallback"
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerificationCallback"
+                }
+              }
+            }
+          }
+        },
+        "summary": "Create a new VerificationCallback",
+        "operationId": "createVerificationCallback",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerificationCallback"
+              }
+            }
+          }
+        },
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/verificationCallbacks/{verficationID}": {
       "get": {
         "tags": [
-          "TraceabilityGraph"
+          "VerificationCallback"
         ],
         "parameters": [
           {
-            "name": "id",
-            "description": "",
+            "name": "verficationID",
+            "description": "The unique ID of of the verification created by the counter party.",
             "schema": {
               "type": "string"
             },
@@ -476,47 +574,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/TraceabilityGraph"
+                  "$ref": "#/components/schemas/VerificationCallback"
                 }
               }
             }
           }
         },
-        "summary": "Get a TraceabilityGraph",
-        "operationId": "getTraceabilityGraphById_itemTraceability",
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
-      }
-    },
-    "/counterPartyVerificationCallbacks": {
-      "post": {
-        "tags": [
-          "CounterPartyVerificationCallback"
-        ],
-        "parameters": [],
-        "responses": {
-          "201": {
-            "description": "Success",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/CounterPartyVerificationCallback"
-                }
-              }
-            }
+        "summary": "Get a VerificationCallback",
+        "operationId": "getVerificationCallbackById",
+        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n",
+        "security": [
+          {
+            "api_key": []
           }
-        },
-        "summary": "Create a new CounterPartyVerificationCallback",
-        "operationId": "createCounterPartyVerificationCallback",
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CounterPartyVerificationCallback"
-              }
-            }
-          }
-        },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        ]
       }
     },
     "/businessPartners": {
@@ -548,7 +619,18 @@
             }
           }
         },
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "registration of a new busines partner - used for counter party \"4-eyes\" verification of events.\n",
+        "security": [
+          {
+            "main_auth_client": [
+              "read:users",
+              "write:users"
+            ]
+          },
+          {
+            "api_key": []
+          }
+        ]
       }
     },
     "/businessPartners/{partyID}": {
@@ -559,9 +641,10 @@
         "parameters": [
           {
             "name": "partyID",
-            "description": "",
+            "description": "The globally unique identifier of the party. This must be expressed as a URI that is (preferably) resolvable to an entity register such as a national business register - eg https://abr.business.gov.au/ABN/View?abn=41161080146 ",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "in": "path",
             "required": true
@@ -580,7 +663,13 @@
           }
         },
         "summary": "Get a BusinessPartner",
-        "operationId": "getBusinessPartnerById"
+        "operationId": "getBusinessPartnerById",
+        "description": "get busines partner details\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "put": {
         "tags": [
@@ -589,9 +678,10 @@
         "parameters": [
           {
             "name": "partyID",
-            "description": "",
+            "description": "The globally unique identifier of the party. This must be expressed as a URI that is (preferably) resolvable to an entity register such as a national business register - eg https://abr.business.gov.au/ABN/View?abn=41161080146 ",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "in": "path",
             "required": true
@@ -619,7 +709,13 @@
               }
             }
           }
-        }
+        },
+        "description": "update a busines partner registration\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
       },
       "delete": {
         "tags": [
@@ -628,9 +724,10 @@
         "parameters": [
           {
             "name": "partyID",
-            "description": "",
+            "description": "The globally unique identifier of the party. This must be expressed as a URI that is (preferably) resolvable to an entity register such as a national business register - eg https://abr.business.gov.au/ABN/View?abn=41161080146 ",
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uri"
             },
             "in": "path",
             "required": true
@@ -643,7 +740,131 @@
         },
         "summary": "Delete a BusinessPartner",
         "operationId": "deleteBusinessPartnerById",
-        "description": "Some description of the operation.\n\n***You can use keep using `markdown` here to write out your description in more detail.***\n"
+        "description": "remove a business partner\n",
+        "security": [
+          {
+            "api_key": []
+          }
+        ]
+      }
+    },
+    "/events": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "eventType",
+            "description": "The event type - object, aggregation, transformation, transaction.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "businessStepCode",
+            "description": "BusinessStepID is a vocabulary whose elements denote steps in business processes. An example is an identifier that denotes “shipping.” The business step field of an event specifies the business context of an event: what business process step was taking place that caused the event to be captured? This specification has chosena 5 of the 41 possible bizstep values defined by GS1 that are appropriate for the sustainbility use case.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "referenceStandard",
+            "description": "The identifier (as a URI) of the sustainability standard against whichthe certificate is issued.  For example abvtex.org.br/v4.0",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "fromDateTime",
+            "description": "DateTime AFTER which matching events should be returned.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "toDateTime",
+            "description": "DateTime BEFORE which matching events should be returned.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "rootItemID",
+            "description": "Item ID of a traded item or shipment from which a set of traceability events that represent the supply chain for this item.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "rootProductClassID",
+            "description": "Product Class ID of a product from which a set of traceability events that represent the supply chain for this item.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "geographicScope",
+            "description": "The Google plus code representing the geographic area within which matching events occurred. Note that plus codes can be used to define areas as small as square meter or as big as multiple countries.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "page",
+            "schema": {
+              "type": "number"
+            },
+            "description": "The page that the user wants to return.",
+            "required": false
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "schema": {
+              "type": "number"
+            },
+            "description": "The number of results per page the user wants to return.",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Event"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "List Events",
+        "operationId": "listEvents",
+        "description": "Query service to return a list of events that match the query parameters. The result set is an array that contains any-of the event types.\n\n\n\nThis path supports pagination and uses the following query parameters:\n\n| Query Parameter | Description | Example |\n| --- | --- | --- |\n| 'page' | The page that the user wants to return. | 'page=1' (default: 1)|\n| 'limit' | The number of results per page the user wants to return. | 'limit=10' (default: 10)|\n\nThis creates a URI structure similar to:\n\nPage 1: '/events?page=1&limit=10'\n\nPage 2: '/events?page=2&limit=10'\n\n",
+        "security": [
+          {
+            "main_auth_client": [
+              "read:users"
+            ]
+          },
+          {
+            "api_key": []
+          }
+        ]
       }
     }
   },
@@ -663,27 +884,32 @@
       "ObjectEvent": {
         "type": "object",
         "properties": {
-          "items": {
+          "itemList": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Product"
+              "$ref": "#/components/schemas/Item"
             },
-            "description": ""
+            "description": "A list of uniquely identified items (eg specific items serial numbers or tagged shipments / packages) that are the focus of this object event.  "
           },
-          "quantities": {
+          "quantityList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QuantityElement"
             },
-            "description": ""
+            "description": "A quantified list of product classes (eg GS1 GTINs) that are the focus of this object event"
           },
           "eventID": {
+            "readOnly": true,
             "type": "string",
             "description": "The unique identifier of this event - SHOULD be a UUID"
           },
-          "occurrenceDateTime": {
+          "eventType": {
             "type": "string",
-            "description": "The date, time, date time, or other date time value of an occurrence of this header balance out."
+            "description": "The event type - object, aggregation, transformation, transaction."
+          },
+          "eventTime": {
+            "type": "string",
+            "description": "The ISO-8601 date time when the event occured."
           },
           "actionCode": {
             "type": "string",
@@ -691,45 +917,40 @@
           },
           "dispositionCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/dispositionCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/dispositionCode\n"
+            "description": "Disposition code is a vocabulary whose elements denote a business state of an object. An example is a code that denotes “recalled\". The disposition field of an event specifies the business condition of the event’s objects, subsequent to the event. The disposition is assumed to hold true until another event indicates a change of disposition. Intervening events that do not specify a disposition field have no effect on the presumed disposition of the object.  The GS1 vocabulary (CBV v2.0) defines 33 possible disposition codes but this specification restricts the options to the minimum set of values that are relevant for supply chain traceability.  "
           },
           "businessStepCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/businessStepCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/businessStepCode\n"
+            "description": "BusinessStepID is a vocabulary whose elements denote steps in business processes. An example is an identifier that denotes “shipping.” The business step field of an event specifies the business context of an event: what business process step was taking place that caused the event to be captured? This specification has chosena 5 of the 41 possible bizstep values defined by GS1 that are appropriate for the sustainbility use case."
           },
-          "readPointID": {
+          "readPointId": {
             "type": "string",
-            "description": ""
+            "description": "A Read Point is a discretely recorded location that is meant to identify the most specific place at which an EPCIS event took place. Read Points are determined by the EPCIS Capturing Application, perhaps inferred as a function of logical reader if stationary readers are used, perhaps determined overtly by reading a location tag if the reader is mobile, or in general determined by any other means the EPCIS Capturing Application chooses to use. Conceptually, the Read Point is designed to identify “where objects were at the time of the EPCIS event.”"
           },
-          "businessLocation": {
-            "$ref": "#/components/schemas/Location",
-            "description": ""
+          "locationId": {
+            "type": "string",
+            "description": "A Business Location is a uniquely identified and discretely recorded geospatial location that is meant to designate the specific place where an object is assumed to be following an EPCIS event until it is reported to be at a different Business Location by a subsequent EPCIS event. This specification requires the use of https://maps.google.com/pluscodes/ as geospatial identifiers rather than identifier schemes that cannot be reolved to a geogrpahic point or area."
           },
           "certification": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificationInfo"
             },
-            "description": ""
-          },
-          "integrityLevel": {
-            "type": "string",
-            "description": ""
+            "description": "Any test result or certification related to this EPCIS event.Could be self-assessed or independent and has asssociated sustainabiloity claims from the ITC vocabulary."
           }
         }
       },
-      "Product": {
+      "Item": {
         "type": "object",
         "properties": {
-          "productID": {
+          "itemID": {
             "type": "string",
-            "description": "The unique identifier of this logistics label."
+            "format": "uri",
+            "description": "The globally unique identifier (eg GS1 GTIN or digital link) of the product item.  "
           },
           "name": {
             "type": "string",
-            "description": "The name, expressed as text, for this trade product group."
+            "description": "The name of the product class to which the product item belongs.  "
           }
         }
       },
@@ -738,70 +959,69 @@
         "properties": {
           "productClass": {
             "type": "string",
-            "description": "The unique identifier of this logistics label."
+            "description": "THe identifier of a product class (as opposed to a product instance) such as a GTIN code for a manufactured product."
           },
           "quantity": {
             "type": "string",
-            "description": "The actual quantity for this work item quantity analysis."
+            "description": "The numeric quantity of the product class (eg 100 kg of cotton)"
           },
           "uom": {
             "type": "string",
             "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/unitOfMeasureCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/unitOfMeasureCode\n"
+            "description": "The unit of measure for the quantity value (eg Kg or meters etc) using the UNECE Rec 20 unit of measure codelist.\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/unitOfMeasureCode\n"
           }
         },
         "required": [
           "quantity"
         ]
       },
-      "Location": {
-        "type": "object",
-        "properties": {
-          "identification": {
-            "type": "string",
-            "description": "The unique identifier of this logistics label."
-          },
-          "name": {
-            "type": "string",
-            "description": "The name, expressed as text, for this trade product group."
-          }
-        }
-      },
       "CertificationInfo": {
         "type": "object",
         "properties": {
-          "AssertionID": {
+          "certificateID": {
             "type": "string",
-            "description": ""
+            "format": "uri",
+            "description": "The ID of the certificate document"
           },
-          "EvidenceURL": {
+          "referenceStandard": {
             "type": "string",
-            "description": ""
+            "format": "uri",
+            "description": "The identifier (as a URI) of the sustainability standard against whichthe certificate is issued.  For example abvtex.org.br/v4.0"
           },
-          "ResponsibleAgency": {
-            "$ref": "#/components/schemas/TradeParty",
-            "description": ""
-          },
-          "theme": {
+          "evidenceURL": {
             "type": "string",
-            "description": ""
+            "format": "uri",
+            "description": "The URL of the certificate document. For privacy and integrity reasons, it is recommended (but not required) that * the documentURL is a hashlink (https://w3c-ccg.github.io/hashlink/) so that if the document the URL is changed then the hash verification will fail.* the document is encrypted for privacy reasons and that the symmetric key for decruption is provided as a URL parameter.* the document filename is a GUID so that there is no leakage of possibly identifying information in the URL.https://domain/GUID?h1={document_hash}&key={decryption_key}For examplehttps://docstore.com/ef1e69fbbeaf47b4af97e29c69dc09cf.pdf?h1=zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e&key=462D4A614E645267556B587032733576"
           },
-          "pillar": {
+          "criteriaList": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uri"
+            },
+            "description": "Optional list of specific sustainability criteria that the certificate claims are met."
+          },
+          "assessmentLevel": {
             "type": "string",
-            "description": ""
+            "description": "The integrity level of the sustainability claims. Self asssed or independently certified.  "
+          },
+          "responsibleAgency": {
+            "$ref": "#/components/schemas/Party",
+            "description": "The issuing authority of the certificate."
           }
         }
       },
-      "TradeParty": {
+      "Party": {
         "type": "object",
         "properties": {
           "partyID": {
             "type": "string",
-            "description": "The unique identifier of this logistics label."
+            "format": "uri",
+            "description": "The globally unique identifier of the party. This must be expressed as a URI that is (preferably) resolvable to an entity register such as a national business register - eg https://abr.business.gov.au/ABN/View?abn=41161080146 "
           },
           "name": {
             "type": "string",
-            "description": "The name, expressed as text, for this trade product group."
+            "description": "The entity name of the identified party - usually the business anme from the corresponding natinal registery -eg ACME LTD"
           }
         }
       },
@@ -809,31 +1029,43 @@
         "type": "object",
         "properties": {
           "sourceParty": {
-            "$ref": "#/components/schemas/TradeParty",
-            "description": ""
+            "$ref": "#/components/schemas/Party",
+            "description": "The source party for this supply chain transaction - typcially the seller party"
           },
           "destinationParty": {
-            "$ref": "#/components/schemas/TradeParty",
-            "description": ""
+            "$ref": "#/components/schemas/Party",
+            "description": "The destination party for this supply chain transaction - typcially the buyer party."
           },
-          "transactionList": {
+          "transaction": {
+            "$ref": "#/components/schemas/TradeTransaction",
+            "description": "The supply chain transaction reference for this transaction event - eg the invoice, order, or despatch advice"
+          },
+          "itemList": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/TradeTransaction"
+              "$ref": "#/components/schemas/Item"
             },
-            "description": ""
+            "description": "The list of uniquely identified trade items included in this supply chain transaction."
           },
-          "quantity": {
-            "$ref": "#/components/schemas/QuantityElement",
-            "description": ""
+          "quantityList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuantityElement"
+            },
+            "description": "List of quantified product classes that are included in theis transaction.  Used whwn the trade items do not have unique identifiers (eg 100 reels of yarn)"
           },
           "eventID": {
+            "readOnly": true,
             "type": "string",
             "description": "The unique identifier of this event - SHOULD be a UUID"
           },
-          "occurrenceDateTime": {
+          "eventType": {
             "type": "string",
-            "description": "The date, time, date time, or other date time value of an occurrence of this header balance out."
+            "description": "The event type - object, aggregation, transformation, transaction."
+          },
+          "eventTime": {
+            "type": "string",
+            "description": "The ISO-8601 date time when the event occured."
           },
           "actionCode": {
             "type": "string",
@@ -841,32 +1073,26 @@
           },
           "dispositionCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/dispositionCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/dispositionCode\n"
+            "description": "Disposition code is a vocabulary whose elements denote a business state of an object. An example is a code that denotes “recalled\". The disposition field of an event specifies the business condition of the event’s objects, subsequent to the event. The disposition is assumed to hold true until another event indicates a change of disposition. Intervening events that do not specify a disposition field have no effect on the presumed disposition of the object.  The GS1 vocabulary (CBV v2.0) defines 33 possible disposition codes but this specification restricts the options to the minimum set of values that are relevant for supply chain traceability.  "
           },
           "businessStepCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/businessStepCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/businessStepCode\n"
+            "description": "BusinessStepID is a vocabulary whose elements denote steps in business processes. An example is an identifier that denotes “shipping.” The business step field of an event specifies the business context of an event: what business process step was taking place that caused the event to be captured? This specification has chosena 5 of the 41 possible bizstep values defined by GS1 that are appropriate for the sustainbility use case."
           },
-          "readPointID": {
+          "readPointId": {
             "type": "string",
-            "description": ""
+            "description": "A Read Point is a discretely recorded location that is meant to identify the most specific place at which an EPCIS event took place. Read Points are determined by the EPCIS Capturing Application, perhaps inferred as a function of logical reader if stationary readers are used, perhaps determined overtly by reading a location tag if the reader is mobile, or in general determined by any other means the EPCIS Capturing Application chooses to use. Conceptually, the Read Point is designed to identify “where objects were at the time of the EPCIS event.”"
           },
-          "businessLocation": {
-            "$ref": "#/components/schemas/Location",
-            "description": ""
+          "locationId": {
+            "type": "string",
+            "description": "A Business Location is a uniquely identified and discretely recorded geospatial location that is meant to designate the specific place where an object is assumed to be following an EPCIS event until it is reported to be at a different Business Location by a subsequent EPCIS event. This specification requires the use of https://maps.google.com/pluscodes/ as geospatial identifiers rather than identifier schemes that cannot be reolved to a geogrpahic point or area."
           },
           "certification": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificationInfo"
             },
-            "description": ""
-          },
-          "integrityLevel": {
-            "type": "string",
-            "description": ""
+            "description": "Any test result or certification related to this EPCIS event.Could be self-assessed or independent and has asssociated sustainabiloity claims from the ITC vocabulary."
           }
         }
       },
@@ -875,12 +1101,16 @@
         "properties": {
           "type": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/documentTypeCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/documentTypeCode\n"
+            "description": "The document type representing the trade transaciton. This profile for supply chain traceability defines a simple subset of 5 document types that may be referenced by a transaction event."
+          },
+          "identifier": {
+            "type": "string",
+            "description": "The identifier of the trade transaction document - eg an invoice number or bill of lading number.  Must be unique for a given source party"
           },
           "documentURL": {
             "type": "string",
-            "description": ""
+            "format": "uri",
+            "description": "The URL of the referenced trade document. For privacy and integrity reasons, it is recommended (but not required) that * the documentURL is a hashlink (https://w3c-ccg.github.io/hashlink/) so that if the document the URL is changed then the hash verification will fail.* the document is encrypted for privacy reasons and that the hex encoded symmetric key for decruption is provided as a URL parameter.* the document filename is a GUID so that there is no leakage of possibly identifying information in the URL.https://domain/GUID?h1={document_hash}&key={decryption_key}For examplehttps://docstore.com/ef1e69fbbeaf47b4af97e29c69dc09cf.pdf?h1=zQmWvQxTqbG2Z9HPJgG57jjwR154cKhbtJenbyYTWkjgF3e&key=462D4A614E645267556B587032733576"
           }
         }
       },
@@ -888,33 +1118,35 @@
         "type": "object",
         "properties": {
           "parentItem": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Product"
-            },
-            "description": ""
+            "$ref": "#/components/schemas/Item",
+            "description": "The unique item identifier that is the result of this aggreation. Typcially a packaging ID used in shipments that represents a box/ pallet / container of contained items."
           },
           "childItems": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Product"
+              "$ref": "#/components/schemas/Item"
             },
-            "description": ""
+            "description": "The list of child items that have been aggreated into the parent (or disaggregated from the parent). Maybe a list of pckage referneces (eg boxes on a pallet) or may be individual items (eg products in a box)."
           },
-          "childQuantities": {
+          "childQuantityList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QuantityElement"
             },
-            "description": ""
+            "description": "List of quantified product classes that have been aggregated into the parent.  Used whwn the child items do not have unique identifiers (eg 100 Kg of cotton bales)"
           },
           "eventID": {
+            "readOnly": true,
             "type": "string",
             "description": "The unique identifier of this event - SHOULD be a UUID"
           },
-          "occurrenceDateTime": {
+          "eventType": {
             "type": "string",
-            "description": "The date, time, date time, or other date time value of an occurrence of this header balance out."
+            "description": "The event type - object, aggregation, transformation, transaction."
+          },
+          "eventTime": {
+            "type": "string",
+            "description": "The ISO-8601 date time when the event occured."
           },
           "actionCode": {
             "type": "string",
@@ -922,70 +1154,72 @@
           },
           "dispositionCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/dispositionCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/dispositionCode\n"
+            "description": "Disposition code is a vocabulary whose elements denote a business state of an object. An example is a code that denotes “recalled\". The disposition field of an event specifies the business condition of the event’s objects, subsequent to the event. The disposition is assumed to hold true until another event indicates a change of disposition. Intervening events that do not specify a disposition field have no effect on the presumed disposition of the object.  The GS1 vocabulary (CBV v2.0) defines 33 possible disposition codes but this specification restricts the options to the minimum set of values that are relevant for supply chain traceability.  "
           },
           "businessStepCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/businessStepCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/businessStepCode\n"
+            "description": "BusinessStepID is a vocabulary whose elements denote steps in business processes. An example is an identifier that denotes “shipping.” The business step field of an event specifies the business context of an event: what business process step was taking place that caused the event to be captured? This specification has chosena 5 of the 41 possible bizstep values defined by GS1 that are appropriate for the sustainbility use case."
           },
-          "readPointID": {
+          "readPointId": {
             "type": "string",
-            "description": ""
+            "description": "A Read Point is a discretely recorded location that is meant to identify the most specific place at which an EPCIS event took place. Read Points are determined by the EPCIS Capturing Application, perhaps inferred as a function of logical reader if stationary readers are used, perhaps determined overtly by reading a location tag if the reader is mobile, or in general determined by any other means the EPCIS Capturing Application chooses to use. Conceptually, the Read Point is designed to identify “where objects were at the time of the EPCIS event.”"
           },
-          "businessLocation": {
-            "$ref": "#/components/schemas/Location",
-            "description": ""
+          "locationId": {
+            "type": "string",
+            "description": "A Business Location is a uniquely identified and discretely recorded geospatial location that is meant to designate the specific place where an object is assumed to be following an EPCIS event until it is reported to be at a different Business Location by a subsequent EPCIS event. This specification requires the use of https://maps.google.com/pluscodes/ as geospatial identifiers rather than identifier schemes that cannot be reolved to a geogrpahic point or area."
           },
           "certification": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificationInfo"
             },
-            "description": ""
-          },
-          "integrityLevel": {
-            "type": "string",
-            "description": ""
+            "description": "Any test result or certification related to this EPCIS event.Could be self-assessed or independent and has asssociated sustainabiloity claims from the ITC vocabulary."
           }
         }
       },
       "TransformationEvent": {
         "type": "object",
         "properties": {
-          "outputItems": {
+          "outputItemList": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Product"
+              "$ref": "#/components/schemas/Item"
             },
-            "description": ""
+            "description": "The list of uniquely identified items that are the output of this transformation event - for example a list of individually identified bolts of cloth that are the output of a weaving process."
           },
-          "inputItems": {
+          "inputItemList": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Product"
+              "$ref": "#/components/schemas/Item"
             },
-            "description": ""
+            "description": "The list of uniquely identified items that are the intput of this transformation event - for example a list of individually identified bobbins of yarn that are the input of a weaving process."
           },
-          "inputQuantity": {
+          "inputQuantityList": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/QuantityElement"
             },
-            "description": ""
+            "description": "The quantified list of product classes that are the input of this transformation event - usend when each item does not have a unique identity.  for example the weight of raw cotton that is the input to a ginning process."
           },
-          "outputQuantity": {
-            "$ref": "#/components/schemas/QuantityElement",
-            "description": ""
+          "outputQuantityList": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/QuantityElement"
+            },
+            "description": "The quantified list of product classes that are the output of this transformation event - usend when each item does not have a unique identity.  for example a count of the bales of cleaned cotton that are the output of a ginning process."
           },
           "eventID": {
+            "readOnly": true,
             "type": "string",
             "description": "The unique identifier of this event - SHOULD be a UUID"
           },
-          "occurrenceDateTime": {
+          "eventType": {
             "type": "string",
-            "description": "The date, time, date time, or other date time value of an occurrence of this header balance out."
+            "description": "The event type - object, aggregation, transformation, transaction."
+          },
+          "eventTime": {
+            "type": "string",
+            "description": "The ISO-8601 date time when the event occured."
           },
           "actionCode": {
             "type": "string",
@@ -993,124 +1227,95 @@
           },
           "dispositionCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/dispositionCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/dispositionCode\n"
+            "description": "Disposition code is a vocabulary whose elements denote a business state of an object. An example is a code that denotes “recalled\". The disposition field of an event specifies the business condition of the event’s objects, subsequent to the event. The disposition is assumed to hold true until another event indicates a change of disposition. Intervening events that do not specify a disposition field have no effect on the presumed disposition of the object.  The GS1 vocabulary (CBV v2.0) defines 33 possible disposition codes but this specification restricts the options to the minimum set of values that are relevant for supply chain traceability.  "
           },
           "businessStepCode": {
             "type": "string",
-            "x-external-enumeration": "https://api.sustainability.unece.org/referenceData/businessStepCode",
-            "description": "\n\nThis is an enumerated value, but the list of valid values are too big, or change too often to include here. You can access the list of allowable values at this URL:  https://api.sustainability.unece.org/referenceData/businessStepCode\n"
+            "description": "BusinessStepID is a vocabulary whose elements denote steps in business processes. An example is an identifier that denotes “shipping.” The business step field of an event specifies the business context of an event: what business process step was taking place that caused the event to be captured? This specification has chosena 5 of the 41 possible bizstep values defined by GS1 that are appropriate for the sustainbility use case."
           },
-          "readPointID": {
+          "readPointId": {
             "type": "string",
-            "description": ""
+            "description": "A Read Point is a discretely recorded location that is meant to identify the most specific place at which an EPCIS event took place. Read Points are determined by the EPCIS Capturing Application, perhaps inferred as a function of logical reader if stationary readers are used, perhaps determined overtly by reading a location tag if the reader is mobile, or in general determined by any other means the EPCIS Capturing Application chooses to use. Conceptually, the Read Point is designed to identify “where objects were at the time of the EPCIS event.”"
           },
-          "businessLocation": {
-            "$ref": "#/components/schemas/Location",
-            "description": ""
+          "locationId": {
+            "type": "string",
+            "description": "A Business Location is a uniquely identified and discretely recorded geospatial location that is meant to designate the specific place where an object is assumed to be following an EPCIS event until it is reported to be at a different Business Location by a subsequent EPCIS event. This specification requires the use of https://maps.google.com/pluscodes/ as geospatial identifiers rather than identifier schemes that cannot be reolved to a geogrpahic point or area."
           },
           "certification": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/CertificationInfo"
             },
-            "description": ""
-          },
-          "integrityLevel": {
-            "type": "string",
-            "description": ""
+            "description": "Any test result or certification related to this EPCIS event.Could be self-assessed or independent and has asssociated sustainabiloity claims from the ITC vocabulary."
           }
         }
       },
-      "TraceabilityGraph": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "string",
-            "description": ""
-          },
-          "rootItem": {
-            "$ref": "#/components/schemas/Product",
-            "description": ""
-          },
-          "objectEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/ObjectEvent"
-            },
-            "description": ""
-          },
-          "aggregationEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/AggregationEvent"
-            },
-            "description": ""
-          },
-          "transactionEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransactionEvent"
-            },
-            "description": ""
-          },
-          "transformationEvents": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/TransformationEvent"
-            },
-            "description": ""
-          }
-        }
-      },
-      "CounterPartyVerificationCallback": {
+      "VerificationCallback": {
         "type": "object",
         "properties": {
           "verficationID": {
+            "readOnly": true,
             "type": "string",
-            "description": ""
+            "description": "The unique ID of of the verification created by the counter party."
           },
           "verificationDateTime": {
+            "readOnly": true,
             "type": "string",
             "format": "date-time",
-            "description": ""
+            "description": "The dateTime stamp of the verification "
           },
           "verificationOutcome": {
+            "readOnly": true,
             "type": "string",
-            "description": ""
+            "description": "The outcome of the counter party verification - returned by the verification callback end point."
           },
-          "transactionVerification": {
-            "$ref": "#/components/schemas/TransactionEvent",
-            "description": ""
-          },
-          "certificateVerification": {
-            "$ref": "#/components/schemas/ObjectEvent",
-            "description": ""
+          "verificationData": {
+            "$ref": "#/components/schemas/Event",
+            "description": "The event data that is to be verified by the counter party"
           }
         }
+      },
+      "Event": {
+        "type": "object",
+        "oneOf": [
+          {
+            "$ref": "#/components/schemas/ObjectEvent"
+          },
+          {
+            "$ref": "#/components/schemas/AggregationEvent"
+          },
+          {
+            "$ref": "#/components/schemas/TransactionEvent"
+          },
+          {
+            "$ref": "#/components/schemas/TransformationEvent"
+          }
+        ]
       },
       "BusinessPartner": {
         "type": "object",
         "properties": {
           "email": {
             "type": "string",
-            "description": ""
+            "description": "email address of the verifier person for manual verifications."
           },
           "domain": {
             "type": "string",
-            "description": ""
+            "format": "uri",
+            "description": "DNS domain of the counter party"
           },
           "role": {
             "type": "string",
-            "description": ""
+            "description": "Role of the coutner party (business partner or certifier)"
           },
           "partyID": {
             "type": "string",
-            "description": "The unique identifier of this logistics label."
+            "format": "uri",
+            "description": "The globally unique identifier of the party. This must be expressed as a URI that is (preferably) resolvable to an entity register such as a national business register - eg https://abr.business.gov.au/ABN/View?abn=41161080146 "
           },
           "name": {
             "type": "string",
-            "description": "The name, expressed as text, for this trade product group."
+            "description": "The entity name of the identified party - usually the business anme from the corresponding natinal registery -eg ACME LTD"
           }
         }
       },
@@ -1172,6 +1377,22 @@
             "scopes": {
               "read:users": "read users info",
               "write:users": "modify or remove users"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      },
+      "main_auth_client": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://api.example.com/token/",
+            "scopes": {
+              "read:users": "read users info"
             }
           }
         }
