@@ -26,7 +26,7 @@ build = local.Command(''.join(random.choice(string.ascii_lowercase) for i in ran
 lambda_func = aws.lambda_.Function("itc-api-imp",
                                    role=iam.lambda_role.arn,
                                    runtime="python3.9",
-                                   handler="itc_api.handler",
+                                   handler="src/itc_api.handler",
                                    code=pulumi.FileArchive('./tmp/deployment-package.zip'),
                                    opts=ResourceOptions(depends_on=[build])
                                    )
