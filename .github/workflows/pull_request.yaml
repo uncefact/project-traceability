@@ -20,7 +20,7 @@ jobs:
         working-directory: ./config
       - run: . ./scripts/build.sh
         working-directory: ./config
-            - uses: pulumi/actions@v3
+      - uses: pulumi/actions@v3
         with:
           command: preview
           stack-name: mock
