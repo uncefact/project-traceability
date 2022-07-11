@@ -13,9 +13,9 @@ region = aws.config.region
 
 custom_stage_name = 'v1'
 
-build = local.Command(''.join(random.choice(string.ascii_lowercase) for i in range(10)),
-                      create="./scripts/build.sh"
-                      )
+#build = local.Command(''.join(random.choice(string.ascii_lowercase) for i in range(10)),
+#                      create="./scripts/build.sh"
+#                      )
 
 ##################
 ## Lambda Function
@@ -27,8 +27,8 @@ lambda_func = aws.lambda_.Function("itc-api-imp",
                                    role=iam.lambda_role.arn,
                                    runtime="python3.9",
                                    handler="src/itc_api.handler",
-                                   code=pulumi.FileArchive('./tmp/deployment-package.zip'),
-                                   opts=ResourceOptions(depends_on=[build])
+                                   code=pulumi.FileArchive('./tmp/deployment-package.zip')#,
+                                   #opts=ResourceOptions(depends_on=[build])
                                    )
 
 
