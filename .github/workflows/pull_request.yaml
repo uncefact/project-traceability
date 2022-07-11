@@ -18,7 +18,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
       - run: pip install -r requirements.txt
         working-directory: ./config
-      - uses: pulumi/actions@v3
+      - run: . ./scripts/build.sh
+        working-directory: ./config
+            - uses: pulumi/actions@v3
         with:
           command: preview
           stack-name: mock
