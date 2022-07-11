@@ -1,0 +1,172 @@
+{
+	"info": {
+		"_postman_id": "94d787d7-723d-4b07-a520-fe25cc97e1c2",
+		"name": "Traceability API Test Cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19445004"
+	},
+	"item": [
+		{
+			"name": "Create ObjectEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"pm.test(\"EventID id is expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.collectionVariables.set(\"eventID\", jsonData.eventID);",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"itemList\": [\n    {\n      \"id\": \"string\",\n      \"name\": \"string\"\n    }\n  ],\n  \"quantityList\": [\n    {\n      \"productClass\": \"string\",\n      \"quantity\": \"string\",\n      \"uom\": \"string\"\n    }\n  ],\n  \"eventTime\": \"2019-08-24T14:15:22Z\",\n  \"actionCode\": \"string\",\n  \"dispositionCode\": \"string\",\n  \"businessStepCode\": \"string\",\n  \"readPointId\": \"string\",\n  \"locationId\": \"string\"\n} \n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{TRACEABILITY_API_ENDPOINT}}/objectEvents",
+					"host": [
+						"{{TRACEABILITY_API_ENDPOINT}}"
+					],
+					"path": [
+						"objectEvents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ObjectEvent",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"EventID id is expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"        pm.expect(jsonData.eventID).to.eql(pm.collectionVariables.get(\"eventID\"));",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{TRACEABILITY_API_ENDPOINT}}/objectEvents/{{eventID}}",
+					"host": [
+						"{{TRACEABILITY_API_ENDPOINT}}"
+					],
+					"path": [
+						"objectEvents",
+						"{{eventID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ObjectEvents",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"EventID id is expected\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    const event = jsonData.items.find( ({ eventID }) => eventID === pm.collectionVariables.get(\"eventID\") );",
+							"    pm.expect(event.eventID).to.eql(pm.collectionVariables.get(\"eventID\"));",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{TRACEABILITY_API_ENDPOINT}}/objectEvents/",
+					"host": [
+						"{{TRACEABILITY_API_ENDPOINT}}"
+					],
+					"path": [
+						"objectEvents",
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "TRACEABILITY_API_V1",
+			"value": "https://9idvmp0256.execute-api.ap-southeast-2.amazonaws.com/v1",
+			"type": "string"
+		},
+		{
+			"key": "eventID",
+			"value": ""
+		}
+	]
+}
