@@ -1,91 +1,79 @@
 from datetime import datetime
-from typing import List, Optional
+from typing import Optional, Union, Literal
 from uuid import UUID, uuid4
+from enum import Enum
 
+from fastapi import FastAPI, HTTPException, APIRouter
 
-from fastapi import FastAPI, HTTPException, status
+from starlette.status import HTTP_201_CREATED
 from mangum import Mangum
 from pydantic import BaseModel
 import boto3
-import environ
 
 from . import common
-
-env = environ.Env()
-env.read_env('env-local')
-
-aws_endpoint_url = env('AWS_ENDPOINT', default=None)
-
-db = boto3.client('dynamodb', verify=False, endpoint_url=aws_endpoint_url)
-
-response = db.list_tables()
-
-if 'ObjectEvent' not in response['TableNames']:
-    response = db.create_table(
-        AttributeDefinitions=[
-            {
-                'AttributeName': 'eventID',
-                'AttributeType': 'S'
-            },
-        ],
-        KeySchema=[
-            {
-                'AttributeName': 'eventID',
-                'KeyType': 'HASH'
-            },
-        ],
-        TableName='ObjectEvent',
-        BillingMode='PAY_PER_REQUEST',
-        TableClass='STANDARD_INFREQUENT_ACCESS'
-    )
-
+from .common import env
+from .models import (
+    TransactionEvent, TransactionEventBase, ObjectEventBase, ObjectEvent, 
+    AggregationEvent, AggregationEventBase, TransformationEvent, TransformationEventBase 
+)
+from .init_dynamodb import db
 
 app = FastAPI()
 
-class ObjectEventItem(BaseModel):
-    id: str
-    name: str
-    
-class ObjectEventQuantityItem(BaseModel):
-    productClass: str
-    quantity: str
-    uom: str
-    
-class ObjectEventBase(BaseModel):
-    itemList: List[ObjectEventItem]
-    quantityList: List[ObjectEventQuantityItem]
-    eventTime: Optional[datetime]
-    actionCode: Optional[str]
-    dispositionCode: Optional[str]
-    businessStepCode: Optional[str]
-    readPointId: Optional[str]
-    locationId: Optional[str]
-    
-class ObjectEvent(ObjectEventBase):
-    eventID: UUID
-    
+
+objectEvent = APIRouter(prefix="/objectEvents", tags=["ObjectEvent"])
+transactionEvent = APIRouter(prefix="/transactionEvents", tags=["TransactionEvent"])
+aggregationEvent = APIRouter(prefix="/aggregationEvents", tags=["AggregationEvent"])
+transformationEvent = APIRouter(prefix="/transformationEvents", tags=["TransformationEvent"])
 
 @app.get("/")
 async def root():
     return {"message": "go to /redoc or /docs for api documentation"}
 
 
-@app.post("/objectEvents", status_code=status.HTTP_201_CREATED)
-async def post_objectEvent(event: ObjectEventBase) -> ObjectEvent:
-    event = ObjectEvent(eventID = uuid4(), **dict(event))
+@objectEvent.post("/", status_code=HTTP_201_CREATED, response_model=ObjectEvent)
+async def post_objectEvent(event: ObjectEventBase):
+    return store_event(event, ObjectEvent)
+    
+@transactionEvent.post("/", status_code=HTTP_201_CREATED, response_model=AggregationEvent)
+async def post_transactionEvent(event: TransactionEventBase):
+    return store_event(event, AggregationEvent)
+    
+@aggregationEvent.post("/", status_code=HTTP_201_CREATED, response_model=AggregationEvent)
+async def post_aggregationEvent(event: AggregationEventBase):
+    return store_event(event, AggregationEvent)
+    
+@transformationEvent.post("/", status_code=HTTP_201_CREATED, response_model=TransformationEvent)
+async def post_transformationEvent(event: TransformationEventBase):
+    return store_event(event, TransformationEvent)
+    
+def store_event(event, EventClass):
+    event = EventClass(eventID = uuid4(), **dict(event))
     data = event.json().replace('"', "'")
-    response = db.execute_statement(
-        Statement=f'INSERT INTO ObjectEvent VALUE {data}',
-    )
-
+    response = db.execute_statement(Statement=f'INSERT INTO Event VALUE {data}')
     return event
 
 
+@objectEvent.get("/{eventID}", response_model=ObjectEvent)
+async def get_objectEvent(eventID: UUID):
+    return get_event(eventID)
 
-@app.get("/objectEvents/{eventID}")
-async def get_objectEvent(eventID: UUID) -> ObjectEvent:
+@transactionEvent.get("/{eventID}", response_model=TransactionEvent)
+async def get_transactionEvent(eventID: UUID):
+    return get_event(eventID)
+
+@aggregationEvent.get("/{eventID}", response_model=AggregationEvent)
+async def get_aggregationEvent(eventID: UUID):
+    return get_event(eventID)
+
+@transformationEvent.get("/{eventID}", response_model=TransformationEvent)
+async def get_transformationEvent(eventID: UUID):
+    return get_event(eventID)
+
+
+def get_event(id: UUID):
     response = db.execute_statement(
-        Statement=f"SELECT * FROM ObjectEvent WHERE eventID='{eventID}'",
+        Statement=f"SELECT * FROM Event WHERE eventID='{eventID}'",
     )
     if response.get('Items'):
         return common.db_to_json(response['Items'][0])
@@ -93,16 +81,45 @@ async def get_objectEvent(eventID: UUID) -> ObjectEvent:
         raise HTTPException(status_code=404, detail="Item not found")
  
 
-class ObjectEventsQueryResponse(BaseModel):
-    items: List[ObjectEvent]
+class ListEventsQueryResponse(BaseModel):
+    items: list[Union[
+        ObjectEvent, TransactionEvent, TransformationEvent, AggregationEvent
+    ]]
     hasMorePages: bool
     nextPageToken: Optional[str]
     
     
-@app.get("/objectEvents/")
-async def get_objectEvents(nextPageToken: Optional[str] = None) -> ObjectEventsQueryResponse:
+@app.get("/events/", response_model=ListEventsQueryResponse)
+async def get_events(
+            nextPageToken: Optional[str] = None, 
+            eventType: Optional[Literal[
+                'ObjectEvent', 'TransactionEvent', 'TransformationEvent', 'AggregationEvent'
+            ]] = None,
+            businessStepCode: Optional[str] = None, 
+            referenceStandard: Optional[str] = None, 
+            fromDateTime: Optional[datetime] = None, 
+            toDateTime: Optional[datetime] = None, 
+            rootItemID: Optional[str] = None, 
+            rootProductClassID: Optional[str] = None, 
+            geographicScope: Optional[str] = None, 
+        ):
+    query = "SELECT * FROM Event"
+    if eventType:
+       query += f" AND eventType='{eventType}'"
+    if businessStepCode:
+       query += f" AND businessStepCode='{businessStepCode}'"
+    if referenceStandard:
+       query += f" AND certification.referenceStandard='{referenceStandard}'"
+    if rootItemID:
+       query += f" AND itemList[0].id = '{rootItemID}'"
+    if fromDateTime:
+       query += f" AND eventTime >= '{fromDateTime}'"
+    if toDateTime:
+       query += f" AND eventTime < '{toDateTime}'"
+       
+    query = query.replace('AND', 'WHERE', 1)
     response = db.execute_statement(
-        Statement=f"SELECT * FROM ObjectEvent",
+        Statement=query,
         **{'NextToken': nextPageToken} if nextPageToken else {}
     )
     items = [common.db_to_json(x) for x in response.get('Items', [])]
@@ -112,6 +129,12 @@ async def get_objectEvents(nextPageToken: Optional[str] = None) -> ObjectEventsQ
     
     return {'items': items, 'hasMorePages': False}
  
+
+
+app.include_router(objectEvent)
+app.include_router(transactionEvent)
+app.include_router(aggregationEvent)
+app.include_router(transformationEvent)
 
 
 
