@@ -111,7 +111,9 @@ async def get_events(
     if referenceStandard:
        query += f" AND certification.referenceStandard='{referenceStandard}'"
     if rootItemID:
-       query += f" AND itemList[0].id = '{rootItemID}'"
+       query += (f" AND (itemList[0].id = '{rootItemID}' "
+                         f"OR inputItemList[0].id = '{rootItemID}' "
+                         f"OR parentItem.id = '{rootItemID}')")
     if fromDateTime:
        query += f" AND eventTime >= '{fromDateTime}'"
     if toDateTime:
