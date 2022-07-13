@@ -118,6 +118,8 @@ async def get_events(
        query += f" AND eventTime >= '{fromDateTime}'"
     if toDateTime:
        query += f" AND eventTime < '{toDateTime}'"
+    if geographicScope:
+       query += f" AND begins_with(\"locationId\", '{geographicScope}')"
        
     query = query.replace('AND', 'WHERE', 1)
     response = db.execute_statement(
