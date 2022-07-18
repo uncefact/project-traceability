@@ -62,9 +62,14 @@ class AggregationEventBase(BaseEvent):
 class AggregationEvent(AggregationEventBase):
     eventID: UUID
     
+class TransactionDetails(BaseModel):
+    identifier: Optional[str]
+    type: Literal["bol", "cert", "desadv", "inv", "po"]
+    documentURL: Optional[str]
     
 class TransactionEventBase(BaseEvent):
     eventType: Literal['TransactionEvent']
+    transaction: Optional[TransactionDetails]
     sourceParty: Optional[Party]
     destinationParty: Optional[Party]
     itemList: list[EventItem]

@@ -71,7 +71,7 @@ async def get_transformationEvent(eventID: UUID):
     return get_event(eventID)
 
 
-def get_event(id: UUID):
+def get_event(eventID: UUID):
     response = db.execute_statement(
         Statement=f"SELECT * FROM Event WHERE eventID='{eventID}'",
     )
