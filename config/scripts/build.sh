@@ -3,7 +3,7 @@
 #set -e
 
 pip install -U pip setuptools wheel
-pip install pdm
+pip install pdm==1.15.4
 if [ -d "tmp" ]; then
   rm -rf "tmp"
 fi
