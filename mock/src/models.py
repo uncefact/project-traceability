@@ -28,17 +28,24 @@ class Certification(BaseModel):
     criteriaList: Optional[list[str]]
     assessmentLevel: Optional[str]
     responsibleAgency: Optional[Party]
-    
-    
+
+
+BizStep = Literal[
+    "commissioning", "inspecting", "shipping", "packing", "unpacking"
+]
+
+Disposition = Literal[
+    "active", "expired", "disposed", "conformant", "non_conformant", "in-transit", "dispensed"
+]
+
+ActionCode = Literal["observe", "add", "delete"]
+
+
 class BaseEvent(BaseModel):
     eventTime: Optional[datetime]
-    actionCode: Optional[Literal["observe", "add", "delete"]]
-    dispositionCode: Optional[Literal[
-        "active", "expired", "disposed", "conformant", "non_conformant", "in-transit", "dispensed"
-    ]]
-    businessStepCode: Optional[Literal[
-        "commissioning", "inspecting", "shipping", "packing", "unpacking"
-    ]]
+    actionCode: Optional[ActionCode]
+    dispositionCode: Optional[Disposition]
+    businessStepCode: Optional[BizStep]
     readPointId: Optional[str]
     locationId: Optional[str]
     certification: Optional[Certification]

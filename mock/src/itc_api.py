@@ -14,7 +14,8 @@ from . import common
 from .common import env
 from .models import (
     TransactionEvent, TransactionEventBase, ObjectEventBase, ObjectEvent, 
-    AggregationEvent, AggregationEventBase, TransformationEvent, TransformationEventBase 
+    AggregationEvent, AggregationEventBase, TransformationEvent, TransformationEventBase,
+    BizStep
 )
 from .init_dynamodb import db
 
@@ -95,7 +96,7 @@ async def get_events(
             eventType: Optional[Literal[
                 'ObjectEvent', 'TransactionEvent', 'TransformationEvent', 'AggregationEvent'
             ]] = None,
-            businessStepCode: Optional[str] = None, 
+            businessStepCode: Optional[BizStep] = None, 
             referenceStandard: Optional[str] = None, 
             fromDateTime: Optional[datetime] = None, 
             toDateTime: Optional[datetime] = None, 
