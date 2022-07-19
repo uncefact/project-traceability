@@ -97,12 +97,12 @@ async def get_events(
                 'ObjectEvent', 'TransactionEvent', 'TransformationEvent', 'AggregationEvent'
             ]] = None,
             businessStepCode: Optional[BizStep] = None, 
-            referenceStandard: Optional[str] = None, 
-            fromDateTime: Optional[datetime] = None, 
-            toDateTime: Optional[datetime] = None, 
-            rootItemID: Optional[str] = None, 
-            rootProductClassID: Optional[str] = None, 
-            geographicScope: Optional[str] = None, 
+            referenceStandard: Optional[str] = Query(None, example=''),
+            fromDateTime: Optional[datetime] = Query(None, example='2016-09-07T14:03:59.660Z'),
+            toDateTime: Optional[datetime] = Query(None, example='2033-09-07T14:03:59.660Z'),
+            rootItemID: Optional[str] = Query(None, example=''), 
+            rootProductClassID: Optional[str] = Query(None, example=''),  
+            geographicScope: Optional[str] = Query(None, example='6HR8GR9F+9C'), 
         ):
     query = "SELECT * FROM Event"
     if eventType:
