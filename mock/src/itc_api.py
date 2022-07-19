@@ -3,11 +3,11 @@ from typing import Optional, Union, Literal
 from uuid import UUID, uuid4
 from enum import Enum
 
-from fastapi import FastAPI, HTTPException, APIRouter
+from fastapi import FastAPI, HTTPException, APIRouter, Query
 
 from starlette.status import HTTP_201_CREATED
 from mangum import Mangum
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 import boto3
 
 from . import common
@@ -91,7 +91,7 @@ class ListEventsQueryResponse(BaseModel):
     
 @app.get("/events/", response_model=ListEventsQueryResponse)
 async def get_events(
-            nextPageToken: Optional[str] = None, 
+            nextPageToken: Optional[str] = Query(None, example=''), 
             eventType: Optional[Literal[
                 'ObjectEvent', 'TransactionEvent', 'TransformationEvent', 'AggregationEvent'
             ]] = None,
