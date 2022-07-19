@@ -32,9 +32,13 @@ class Certification(BaseModel):
     
 class BaseEvent(BaseModel):
     eventTime: Optional[datetime]
-    actionCode: Optional[str]
-    dispositionCode: Optional[str]
-    businessStepCode: Optional[str]
+    actionCode: Optional[Literal["observe", "add", "delete"]]
+    dispositionCode: Optional[Literal[
+        "active", "expired", "disposed", "conformant", "non_conformant", "in-transit", "dispensed"
+    ]]
+    businessStepCode: Optional[Literal[
+        "commissioning", "inspecting", "shipping", "packing", "unpacking"
+    ]]
     readPointId: Optional[str]
     locationId: Optional[str]
     certification: Optional[Certification]
