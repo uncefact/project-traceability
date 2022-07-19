@@ -19,7 +19,7 @@ from .models import (
 )
 from .init_dynamodb import db
 
-app = FastAPI()
+app = FastAPI(root_path="/v1")
 
 
 objectEvent = APIRouter(prefix="/objectEvents", tags=["ObjectEvent"])
