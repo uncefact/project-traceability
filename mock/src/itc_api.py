@@ -35,9 +35,9 @@ async def root():
 async def post_objectEvent(event: ObjectEventBase):
     return store_event(event, ObjectEvent)
     
-@transactionEvent.post("/", status_code=HTTP_201_CREATED, response_model=AggregationEvent)
+@transactionEvent.post("/", status_code=HTTP_201_CREATED, response_model=TransactionEvent)
 async def post_transactionEvent(event: TransactionEventBase):
-    return store_event(event, AggregationEvent)
+    return store_event(event, TransactionEvent)
     
 @aggregationEvent.post("/", status_code=HTTP_201_CREATED, response_model=AggregationEvent)
 async def post_aggregationEvent(event: AggregationEventBase):
