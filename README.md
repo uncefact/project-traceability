@@ -2,6 +2,12 @@
 
 API definitions, JSON-LD vocabulary, and testable mocks for a UN standard supply chain traceability service based on GS1 EPCIS.
 
+## Discussions
+
+Please note the discussion topics at https://github.com/uncefact/project-traceability/discussions
+
+## Quick Links
+
 Quick link| Status| Description
 --|--|--
 [ITC Vocabulary](https://github.com/uncefact/traceability/blob/main/vocabulary/itc-vocabulary.jsonld) | Raw| JSON-LD Vocabulary of ITC hamronised sustainability criteria - [human browsable version](https://jargon.sh/user/unece/sustainability_vocab/v/working/artefacts/specification/render)
