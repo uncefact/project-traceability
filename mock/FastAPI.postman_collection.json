@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "39643389-347a-471a-aca1-40646b32e4e7",
+		"_postman_id": "73f26622-6a93-4564-af61-9ed3365e389d",
 		"name": "FastAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "22088546"
+		"_exporter_id": "19445004"
 	},
 	"item": [
 		{
@@ -11,6 +11,25 @@
 			"item": [
 				{
 					"name": "Post Objectevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set(\"objectEventID\", jsonData.eventID);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -122,6 +141,26 @@
 				},
 				{
 					"name": "Get Objectevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"        pm.expect(jsonData.eventID).to.eql(pm.collectionVariables.get(\"objectEventID\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -142,7 +181,7 @@
 							"variable": [
 								{
 									"key": "eventID",
-									"value": "1e587354-2a18-a7e6-115c-6b463b5f08db",
+									"value": "{{objectEventID}}",
 									"description": "(Required) "
 								}
 							]
@@ -228,6 +267,25 @@
 			"item": [
 				{
 					"name": "Post Transactionevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set(\"transactionEventID\", jsonData.eventID);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -339,6 +397,26 @@
 				},
 				{
 					"name": "Get Transactionevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"        pm.expect(jsonData.eventID).to.eql(pm.collectionVariables.get(\"transactionEventID\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -359,7 +437,7 @@
 							"variable": [
 								{
 									"key": "eventID",
-									"value": "1e587354-2a18-a7e6-115c-6b463b5f08db",
+									"value": "{{transactionEventID}}",
 									"description": "(Required) "
 								}
 							]
@@ -445,6 +523,25 @@
 			"item": [
 				{
 					"name": "Post Aggregationevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set(\"aggregationEventID\", jsonData.eventID);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -556,6 +653,26 @@
 				},
 				{
 					"name": "Get Aggregationevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"        pm.expect(jsonData.eventID).to.eql(pm.collectionVariables.get(\"aggregationEventID\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -576,7 +693,7 @@
 							"variable": [
 								{
 									"key": "eventID",
-									"value": "1e587354-2a18-a7e6-115c-6b463b5f08db",
+									"value": "{{aggregationEventID}}",
 									"description": "(Required) "
 								}
 							]
@@ -662,6 +779,25 @@
 			"item": [
 				{
 					"name": "Post Transformationevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {",
+									"    pm.response.to.have.status(201);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.collectionVariables.set(\"transformationEventID\", jsonData.eventID);",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [
@@ -773,6 +909,26 @@
 				},
 				{
 					"name": "Get Transformationevent",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"EventID id is expected\", function () {",
+									"    var jsonData = pm.response.json();",
+									"        pm.expect(jsonData.eventID).to.eql(pm.collectionVariables.get(\"transformationEventID\"));",
+									"",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -793,7 +949,7 @@
 							"variable": [
 								{
 									"key": "eventID",
-									"value": "1e587354-2a18-a7e6-115c-6b463b5f08db",
+									"value": "{{transformationEventID}}",
 									"description": "(Required) "
 								}
 							]
@@ -1119,11 +1275,47 @@
 			]
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "baseUrl",
 			"value": "/",
 			"type": "string"
+		},
+		{
+			"key": "objectEventID",
+			"value": ""
+		},
+		{
+			"key": "aggregationEventID",
+			"value": ""
+		},
+		{
+			"key": "transformationEventID",
+			"value": ""
+		},
+		{
+			"key": "transactionEventID",
+			"value": ""
 		}
 	]
 }
