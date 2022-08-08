@@ -29,9 +29,9 @@ aggregationEvent = APIRouter(prefix="/aggregationEvents", tags=["AggregationEven
 transformationEvent = APIRouter(prefix="/transformationEvents", tags=["TransformationEvent"])
 
 @app.get("/", response_class=HTMLResponse)
-async def root(access_token: Optional[str] = None):
-    if access_token:
-        message = 'Your access token: {access_token}'
+async def root(id_token: Optional[str] = None):
+    if id_token:
+        message = f"Your access token: {id_token}"
     else:
         message = f"Unauthorized. Go to <a href='{env('LOGIN_URL', default='')}'>Login</a>"\
                     " page to obtain a token"
