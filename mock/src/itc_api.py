@@ -4,6 +4,7 @@ from uuid import UUID, uuid4
 from enum import Enum
 
 from fastapi import FastAPI, HTTPException, APIRouter, Query
+from fastapi.responses import HTMLResponse
 
 from starlette.status import HTTP_201_CREATED
 from mangum import Mangum
@@ -27,9 +28,22 @@ transactionEvent = APIRouter(prefix="/transactionEvents", tags=["TransactionEven
 aggregationEvent = APIRouter(prefix="/aggregationEvents", tags=["AggregationEvent"])
 transformationEvent = APIRouter(prefix="/transformationEvents", tags=["TransformationEvent"])
 
-@app.get("/")
-async def root():
-    return {"message": "go to /redoc or /docs for api documentation"}
+@app.get("/", response_class=HTMLResponse)
+async def root(id_token: Optional[str] = None):
+    if id_token:
+        message = f"Your access token: {id_token}"
+    else:
+        message = f"Unauthorized. Go to <a href='{env('LOGIN_URL', default='')}'>Login</a>"\
+                    " page to obtain a token"
+    return f"""
+    <html>
+        <head> <title>Traceability API</title> </head>
+        <body>
+            <h3>Traceability API</h3>
+            <p>{message}</p>
+        </body>
+    </html>
+    """
 
 
 @objectEvent.post("/", status_code=HTTP_201_CREATED, response_model=ObjectEvent)

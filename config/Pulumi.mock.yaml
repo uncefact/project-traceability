@@ -1,2 +1,5 @@
 config:
   aws:region: ap-southeast-2
+  sustainability:imp:
+    custom-stage-name: v1
+    login-url: https://mock-traceability.auth.ap-southeast-2.amazoncognito.com/login?client_id=6k427jnbdlhhs00ikrkplp7sha&response_type=token&scope=openid&redirect_uri=https://9idvmp0256.execute-api.ap-southeast-2.amazonaws.com/v1?

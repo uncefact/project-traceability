@@ -11,8 +11,10 @@ from pulumi import ResourceOptions
 from pulumi import Output
 
 region = aws.config.region
-
-custom_stage_name = 'v1'
+config = pulumi.Config();
+data = config.require_object("imp")
+login_url = data.get('login-url')
+custom_stage_name = data.get('custom-stage-name')
 
 #build = local.Command(''.join(random.choice(string.ascii_lowercase) for i in range(10)),
 #                      create="./scripts/build.sh"
@@ -28,6 +30,11 @@ lambda_func = aws.lambda_.Function("itc-api-imp",
                                    role=iam.lambda_role.arn,
                                    runtime="python3.9",
                                    handler="src/itc_api.handler",
+                                   environment={
+                                       "variables": {
+                                           'LOGIN_URL': login_url
+                                       },
+                                   },
                                    code=pulumi.FileArchive('./tmp/deployment-package.zip')#,
                                    #opts=ResourceOptions(depends_on=[build])
                                    )
@@ -40,7 +47,6 @@ lambda_func = aws.lambda_.Function("itc-api-imp",
 ##
 ####################################################################
 # Create a single Swagger spec route handler for a Lambda function.
-account_id=651690125008
 
 def swagger_route_handler(arns, openapi_):
     openapi_["components"]["securitySchemes"]["UserPool"] = {
@@ -177,7 +183,7 @@ bucket = aws.s3.Bucket(
 
 userpool_client = aws.cognito.UserPoolClient("userpoolClient",
     user_pool_id=pool.id,
-    callback_urls=[deployment.invoke_url.apply(lambda url: url)],
+    callback_urls=[deployment.invoke_url.apply(lambda url: url+'?')],
     allowed_oauth_flows_user_pool_client=True,
     allowed_oauth_flows=[
         "implicit",
@@ -189,5 +195,5 @@ userpool_client = aws.cognito.UserPoolClient("userpoolClient",
 
 
 # Export the https endpoint of the running Rest API
-pulumi.export("apigateway-rest-endpoint", deployment.invoke_url.apply(lambda url: url + custom_stage_name))
+pulumi.export("apigateway-rest-endpoint", deployment.invoke_url.apply(lambda url: url))
 pulumi.export('bucket_name', bucket.bucket)
