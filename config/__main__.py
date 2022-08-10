@@ -191,7 +191,7 @@ userpool_client = aws.cognito.UserPoolClient("userpoolClient",
     allowed_oauth_scopes=[
         "openid",
     ],
-    supported_identity_providers=["COGNITO","GitHubShim"])
+    supported_identity_providers=["GitHubShim"])
 
 
 # Export the https endpoint of the running Rest API
