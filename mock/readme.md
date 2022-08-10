@@ -1,8 +1,5 @@
 # How to invoke API using Postman collection
 
-**!!! BUG to be fixed**: after login via GitHub and redirect back to API page, please remove the hash before access_token query parameter and press enter in thea address bar.
-
-
 1. Download and install Postman
 2. Import the collection from this repo: mock/FastAPI.postman_collection.json
 3. Open API URL in the browser : https://9idvmp0256.execute-api.ap-southeast-2.amazonaws.com/v1
