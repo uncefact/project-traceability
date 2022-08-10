@@ -36,7 +36,11 @@ async def root():
             window.onload = function() {{
                 const searchParams = new URLSearchParams(window.location.hash);
                 if (searchParams.get('#id_token') != null) {{
-                        document.getElementById("msg").innerHTML = 'Your access token: ' + searchParams.get('#id_token');
+                        document.getElementById("msg").innerHTML = 'Your access token: ' 
+                        + '<br/>'
+                        + searchParams.get('#id_token')
+                        + '<br/><br/>'
+                        + 'Go to <a href="/v1/redoc">redoc</a> or <a href="/v1/docs">docs</a> for api documentation.';
                 }}
             }}
         </script>
@@ -45,7 +49,7 @@ async def root():
             <h3>Traceability API</h3>
             <p id="msg" style="word-wrap: break-word;">
                 Unauthorized. Go to <a href='{env('LOGIN_URL', default='')}'>Login</a>
-                page to obtain a token
+                page to obtain a token using your GitHub account.
             </p>
         </body>
     </html>
