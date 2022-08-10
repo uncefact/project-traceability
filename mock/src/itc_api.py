@@ -29,18 +29,24 @@ aggregationEvent = APIRouter(prefix="/aggregationEvents", tags=["AggregationEven
 transformationEvent = APIRouter(prefix="/transformationEvents", tags=["TransformationEvent"])
 
 @app.get("/", response_class=HTMLResponse)
-async def root(id_token: Optional[str] = None):
-    if id_token:
-        message = f"Your access token: {id_token}"
-    else:
-        message = f"Unauthorized. Go to <a href='{env('LOGIN_URL', default='')}'>Login</a>"\
-                    " page to obtain a token"
+async def root():
     return f"""
     <html>
+        <script>
+            window.onload = function() {{
+                const searchParams = new URLSearchParams(window.location.hash);
+                if (searchParams.get('#id_token') != null) {{
+                        document.getElementById("msg").innerHTML = 'Your access token: ' + searchParams.get('#id_token');
+                }}
+            }}
+        </script>
         <head> <title>Traceability API</title> </head>
         <body>
             <h3>Traceability API</h3>
-            <p>{message}</p>
+            <p id="msg" style="word-wrap: break-word;">
+                Unauthorized. Go to <a href='{env('LOGIN_URL', default='')}'>Login</a>
+                page to obtain a token
+            </p>
         </body>
     </html>
     """
