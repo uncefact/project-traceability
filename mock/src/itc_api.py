@@ -34,11 +34,11 @@ async def root():
     <html>
         <script>
             window.onload = function() {{
-                const searchParams = new URLSearchParams(window.location.hash);
-                if (searchParams.get('#id_token') != null) {{
+                const searchParams = new URLSearchParams(window.location.hash.slice(1));
+                if (searchParams.get('id_token') != null) {{
                         document.getElementById("msg").innerHTML = 'Your access token: ' 
                         + '<br/>'
-                        + searchParams.get('#id_token')
+                        + searchParams.get('id_token')
                         + '<br/><br/>'
                         + 'Go to <a href="/v1/redoc">redoc</a> or <a href="/v1/docs">docs</a> for api documentation.';
                 }}
