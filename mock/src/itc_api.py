@@ -3,8 +3,9 @@ from typing import Optional, Union, Literal
 from uuid import UUID, uuid4
 from enum import Enum
 
-from fastapi import FastAPI, HTTPException, APIRouter, Query
+from fastapi import FastAPI, HTTPException, APIRouter, Query, Depends
 from fastapi.responses import HTMLResponse
+from fastapi.security import HTTPBearer
 
 from starlette.status import HTTP_201_CREATED
 from mangum import Mangum
@@ -20,13 +21,18 @@ from .models import (
 )
 from .init_dynamodb import db
 
+
+security = HTTPBearer()
+
 app = FastAPI(root_path=env('ROOT_PATH', default='/v1'))
 
+def EventRouter(prefix, tag):
+    return APIRouter(prefix=prefix, tags=[tag], dependencies=[Depends(security)])
 
-objectEvent = APIRouter(prefix="/objectEvents", tags=["ObjectEvent"])
-transactionEvent = APIRouter(prefix="/transactionEvents", tags=["TransactionEvent"])
-aggregationEvent = APIRouter(prefix="/aggregationEvents", tags=["AggregationEvent"])
-transformationEvent = APIRouter(prefix="/transformationEvents", tags=["TransformationEvent"])
+objectEvent = EventRouter("/objectEvents", "ObjectEvent")
+transactionEvent = EventRouter("/transactionEvents", "TransactionEvent")
+aggregationEvent = EventRouter("/aggregationEvents", "AggregationEvent")
+transformationEvent = EventRouter("/transformationEvents", "TransformationEvent")
 
 @app.get("/", response_class=HTMLResponse)
 async def root():
