@@ -120,7 +120,7 @@ class ListEventsQueryResponse(BaseModel):
     nextPageToken: Optional[str]
     
     
-@app.get("/events/", response_model=ListEventsQueryResponse)
+@app.get("/events/", response_model=ListEventsQueryResponse, dependencies=[Depends(security)])
 async def get_events(
             nextPageToken: Optional[str] = Query(None, example=''), 
             eventType: Optional[Literal[
