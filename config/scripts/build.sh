@@ -10,6 +10,7 @@ fi
 mkdir "tmp"
 cp -r ../mock/* "tmp"
 cd "tmp"
+pdm config python.use_venv false
 pdm sync --prod --no-editable
 cd __pypackages__/3.9/lib
 zip -r ../../../deployment-package.zip .
