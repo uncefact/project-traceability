@@ -2,7 +2,7 @@
 
 #set -e
 
-pip install -U pip\<22.2 setuptools wheel
+pip install -U pip setuptools wheel
 pip install pdm==2.1.1
 if [ -d "tmp" ]; then
   rm -rf "tmp"
