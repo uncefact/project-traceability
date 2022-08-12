@@ -12,6 +12,24 @@ from mangum import Mangum
 from pydantic import BaseModel, Field
 import boto3
 
+import sentry_sdk
+from sentry_sdk.integrations.starlette import StarletteIntegration
+from sentry_sdk.integrations.fastapi import FastApiIntegration
+
+
+sentry_sdk.init(
+    dsn="https://dccca35e6ec74a128b3db53c99875b81@o73119.ingest.sentry.io/6642858",
+    integrations=[
+        StarletteIntegration(),
+        FastApiIntegration(),
+    ],
+
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    # We recommend adjusting this value in production,
+    traces_sample_rate=1.0,
+)
+    
 from . import common
 from .common import env
 from .models import (
@@ -20,6 +38,7 @@ from .models import (
     BizStep
 )
 from .init_dynamodb import db
+
 
 
 security = HTTPBearer()
