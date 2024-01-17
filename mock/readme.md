@@ -1,4 +1,12 @@
-# How to invoke API using Postman collection
+# Mock API implementation
+
+This Mock API implementation consists of basic API, that reads/writes data from DynamoDB.
+For auth Cognito USerPool is used with GitHubShim as an identity provider. It allows to use GitHub to obtain JWT token to auth with API. Configuration and deployment of https://github.com/TimothyJones/github-cognito-openid-wrapper is required for this option along with GitHub Oauth App config.
+
+Important: Currently not in use and has been undeployed.
+
+
+## How to invoke API using Postman collection
 
 1. Download and install Postman
 2. Import the collection from this repo: mock/FastAPI.postman_collection.json

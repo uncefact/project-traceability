@@ -180,7 +180,7 @@ bucket = aws.s3.Bucket(
     'github-idp-bucket'
 )
 
-
+#for GitHubShim configure https://github.com/TimothyJones/github-cognito-openid-wrapper
 userpool_client = aws.cognito.UserPoolClient("userpoolClient",
     user_pool_id=pool.id,
     callback_urls=[deployment.invoke_url.apply(lambda url: url+'?')],
